@@ -1,0 +1,3 @@
+[submodule "cms-videoclub"]
+    path = ./cms-videoclub
+    url = https://github.com/manjon2000/cms-videoclub

@@ -1,0 +1,33 @@
+<div class="container w-50 min-vh-100 d-flex justify-content-center align-items-center mt-3">
+    <div class="col w-100 border border-light rounded shadow-lg p-5">
+        <h1>REGISTER</h1>
+        <form class="mb-5" [formGroup]="registerForm" (submit)="setUser($event)">
+            <div class="mb-3">
+                <label for="" class="form-label">Username</label>
+                <input type="text" class="form-control" formControlName="username" name="" id="" aria-describedby="helpId"
+                    placeholder="">
+                <small id="helpId" class="form-text text-muted">*Help text</small>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Email</label>
+                <input type="email" class="form-control" formControlName="email" name="" id="" aria-describedby="helpId"
+                    placeholder="">
+                <small id="helpId" class="form-text text-muted">*Help text</small>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Password</label>
+                <input type="password" class="form-control" formControlName="password" name="" id=""
+                    aria-describedby="helpId" placeholder="">
+                <small id="helpId" class="form-text text-muted">*Help text</small>
+            </div>
+            <button [disabled]="registerForm.invalid" type="submit" class="w-100 btn btn-primary">
+                <span *ngIf="loading" class="fa-solid fa-sync 
+             fa-spin fa-xs text-white me-2">
+                </span>
+                <span *ngIf="!loading">Create account</span>
+                <span *ngIf="loading">Loading </span>
+            </button>
+        </form>
+        <a routerLink="/">¿Ya tienes cuenta? <span class="text-underline">Iniciar sesion</span></a>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container w-50 min-vh-100 d-flex justify-content-center align-items-center mt-3">
+    <div class="col w-100 border border-light rounded shadow p-5">
+        <h1>LOGIN</h1>
+        <form class="mb-5" [formGroup]="loginForm" (ngSubmit)="login($event)">
+            <div class="mb-3">
+                <label for="" class="form-label">Email</label>
+                <input type="text" class="form-control" formControlName="email" aria-describedby="helpId"
+                    placeholder="">
+                <small id="helpId" class="form-text text-muted">*Help text</small>
+            </div>
+            <div class="mb-3">
+                <label for="login-password" class="form-label">Password</label>
+                <input type="password" id="login-password" class="form-control" formControlName="password"
+                    aria-describedby="helpId" placeholder="">
+                <small id="helpId" class="form-text text-muted">*Help text</small>
+            </div>
+            <button [disabled]="loginForm.invalid" type="submit" class="w-100 btn btn-primary">
+                <span *ngIf="loading" class="fa-solid fa-sync 
+             fa-spin fa-sm text-white me-2">
+                </span>
+                <span *ngIf="!loading">Login</span>
+                <span *ngIf="loading">Loading </span>
+            </button>
+        </form>
+        <a routerLink="/register">¿No tienes cuenta? <span>registrate</span></a>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+.ui-dashboard {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    &__wrapper {
+        width: 100%;
+        height: 100vh;
+
+        @media (min-width: 900px) {
+            display: grid;
+            grid-template-columns: 250px auto;
+        }
+    }
+    &__sidebar {
+        max-width: 250px;
+        width: 80%;
+        height: inherit;
+        display: grid;
+        grid-template-rows: 200px auto auto;
+        gap: .5rem;
+        position: fixed;
+        padding: 1rem;
+        transition: cubic-bezier(.77,0,.18,1) .4s;
+        background-color: #161C25;
+        clip-path: circle(0% at 50% 50%);
+        z-index: 2;
+        opacity: 1;
+        overflow: auto;
+
+        @media (min-width: 900px) {
+            max-width: 100%;
+            width: 100%;
+            position: unset;
+            clip-path: none;
+        }
+
+        &__user {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .8rem;
+            &-img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50px;
+            }
+            &-welcome,
+            &-name {
+                color: #f1f0fd;
+            }
+
+            &-welcome {
+                font-weight: 600;
+                line-height: 22px;
+            }
+
+            &-name {
+                font-weight: 400;
+                font-size: small;
+                line-height: 22px;
+            }
+        }
+
+        &__menu {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: .8rem;
+            z-index: 2;
+        }
+
+        &__logout {
+            display: flex;
+            gap: .5rem;
+            align-self: flex-end;
+            color: #f1f0fd;
+            cursor: pointer;
+        }
+
+        &--actived {
+            clip-path: circle(100% at 50% 50%);
+            opacity: 1;
+        }
+    }
+    &__content {
+        width: 100%;
+        height: 100vh;
+        overflow: auto;
+
+        @media (min-width: 900px) {
+            padding: 1.255rem;
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        padding: 1.255rem 1.5rem;
+        background-color: #F2EAC2;
+        z-index: 1;
+         @media (min-width: 900px) {
+            display: none;
+         }
+    }
+}
+

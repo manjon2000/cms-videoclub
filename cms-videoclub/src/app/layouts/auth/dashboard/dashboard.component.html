@@ -1,0 +1,87 @@
+<div class="ui-dashboard">
+
+    <div class="ui-dashboard__wrapper">
+
+
+        <!-- Menu left -->
+        <div class="ui-dashboard__sidebar" [class.ui-dashboard__sidebar--actived]="expandMenu">
+
+            <div class="ui-dashboard__sidebar__user">
+                <img src="https://fastly.picsum.photos/id/140/200/200.jpg?hmac=EslZ18xRW6ewC17GDNdn7zvrEZUx37IhZq5iWo9b4g8"
+                    alt="profile image" class="ui-dashboard__sidebar__user-img">
+                <div class="ui-dashboard__sidebar__user-text">
+                    <p class="ui-dashboard__sidebar__user-welcome">Welcome</p>
+                    <p class="ui-dashboard__sidebar__user-name">{{ userName }}</p>
+                </div>
+            </div>
+
+
+            <ul class="ui-dashboard__sidebar__menu">
+                <ui-list-dropdown
+                    [isActived]="true"
+                    [iconItem]="'fa-solid fa-house'"
+                    [title]="'Home'"
+                    [isListDropdown]="false"
+                />
+
+                <ui-list-dropdown
+                    [iconItem]="'far fa-building'"
+                    [title]="'Franchises'"
+                    [isListDropdown]="true"
+                    [listSubmenu]="[
+                        {icon: 'far fa-eye', title: 'View All', link: '/'},
+                        {icon: 'fa-solid fa-pen-to-square', title: 'Edit franchises', link: '/dashboard'},
+                        {icon: 'fa-solid fa-trash', title: 'Deleted franchises', link: '/dashboard'}
+                    ]"
+                />
+                
+                <ui-list-dropdown
+                    [iconItem]="'fas fa-users'"
+                    [title]="'Employees'"
+                    [isListDropdown]="true"
+                    [listSubmenu]="[
+                        {icon: 'far fa-eye', title: 'View All', link: 'employees'},
+                        {icon: 'fa-solid fa-pen-to-square', title: 'Edit Employees', link: '/employees/edit'},
+                        {icon: 'fa-solid fa-trash', title: 'Deleted Employees', link: 'employees/delete'}
+                    ]"
+                />
+                <ui-list-dropdown
+                    [iconItem]="'fas fa-film'"
+                    [title]="'Films'"
+                    [isListDropdown]="true"
+                    [listSubmenu]="[
+                        {icon: 'far fa-eye', title: 'View All', link: '/'},
+                        {icon: 'fa-solid fa-pen-to-square', title: 'Edit Films', link: '/dashboard'},
+                        {icon: 'fa-solid fa-trash', title: 'Deleted Films', link: '/dashboard'}
+                    ]"
+                />
+            </ul>
+
+
+            <button type="button" class="ui-dashboard__sidebar__logout" (click)="handlelogOut()">
+                <em class="fa-solid fa-right-from-bracket"></em>
+                LOGOUT
+            </button>
+
+
+
+        </div>
+        <!-- //Menu left -->
+
+        <!-- Content-->
+        <div class="ui-dashboard__content">
+            <header class="ui-dashboard__header">
+                <h1>
+                    <a href="http://">
+                        DASHBOARD
+                    </a>
+                </h1>
+                <div (click)="expandedMenu()">
+                    <em class="fa-solid fa-bars"></em>
+                </div>
+            </header>
+            <ng-content></ng-content>
+        </div>
+        <!-- //Content-->
+    </div>
+</div>

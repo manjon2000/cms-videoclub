@@ -1,0 +1,105 @@
+.ui-list-dropdown {
+    width: 100%;
+    height: max-content;
+    padding: .8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    
+    &:hover {
+        background-color: #232932;
+    }
+
+    &-a {
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto;
+        font-size: 1rem;
+        color: #f1f0fd;
+
+        &__wrapper {
+            display: flex;
+            gap: .8rem;
+            align-items: center;
+        }
+
+        & em {
+            align-self: center;
+            font-size: .8rem;
+            color: #dbdbdb;
+        }
+    }
+
+    &-angle {
+        justify-self: flex-end;
+        align-self: center;
+        font-size: .8rem;
+        color: #FFFFFF;
+        transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) .4s;
+        
+        &--rotate {
+            transform: rotate(180deg);
+        }
+    }
+
+    &-submenu {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        animation: collapse ease-in-out .1s forwards;
+        background-color: #232932;
+        opacity: 0;
+        border-radius: 4px;
+        font-size: .88rem;
+        color: #f1f0fd;
+
+        &-item {
+            width: 100%;
+            height: max-content;
+            background-color: #161C25;
+            border-radius: inherit;
+            padding: .8rem;
+
+            &-a {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                gap: .8rem;
+                font-size: .8rem;
+            }
+        }
+
+        &--actived {
+            opacity: 1;
+            margin-top: 1.5rem;
+            animation: expand ease-in-out .4s forwards;
+        }
+    }
+
+    &--actived {
+        background-color: #232932;
+    }
+}
+
+@keyframes expand {
+    from {
+        height: 0;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+        height: auto;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+@keyframes collapse {
+    from {
+        height: auto;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    to {
+        height: 0;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+}

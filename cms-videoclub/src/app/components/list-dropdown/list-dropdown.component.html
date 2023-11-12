@@ -1,0 +1,21 @@
+<li class="ui-list-dropdown" (click)="expandSubmenu()" [class.ui-list-dropdown--actived]="expandedListDropdown || isActived">
+    <a [routerLink]="itemLink" class="ui-list-dropdown-a">
+        <div class="ui-list-dropdown-a__wrapper">
+            <em class="{{iconItem}}"></em>
+            {{title}}
+        </div>
+        <em *ngIf="isListDropdown" class="fa-solid fa-angle-down ui-list-dropdown-angle"
+            [class.ui-list-dropdown-angle--rotate]="expandedListDropdown">
+        </em>
+    </a>
+
+    <ul *ngIf="isListDropdown" class="ui-list-dropdown-submenu"
+        [class.ui-list-dropdown-submenu--actived]="expandedListDropdown">
+        <li class="ui-list-dropdown-submenu-item" *ngFor="let item of listSubmenu">
+            <a routerLink="/{{item.link}}" class="ui-list-dropdown-submenu-item-a">
+                <em *ngIf="item.icon" class="{{item.icon}}"></em>
+                {{ item.title }}
+            </a>
+        </li>
+    </ul>
+</li>

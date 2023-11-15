@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { AppDataSource } from '../../../infrastructure/database/db';
-import { User } from '../../../domain/models/user/user.model';
+import { User } from '../../../domain/user/user.model';
 import { exceptionsHttp } from '../../http/exceptions';
 
 export const RegisterController = async (req: Request, res: Response) => {

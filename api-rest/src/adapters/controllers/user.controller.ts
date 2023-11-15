@@ -1,4 +1,4 @@
-import { User } from "../../domain/models/user/user.model";
+import { User } from "../../domain/user/user.model";
 import { Request, Response } from 'express';
 import { AppDataSource } from "../../infrastructure/database/db";
 import { createToken } from "../../infrastructure/jwt";

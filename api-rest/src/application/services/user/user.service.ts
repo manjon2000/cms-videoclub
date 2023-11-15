@@ -1,12 +1,7 @@
-import { IncomingHttpHeaders } from "http";
 import { exceptionsHttp } from "../../../adapters/http/exceptions";
-import { User } from "../../../domain/models/user/user.model";
+import { User } from "../../../domain/user/user.model";
 import { AppDataSource } from "../../../infrastructure/database/db";
-
-export interface HandlerInterface {
-    code: number;
-    message: string;
-}
+import { HandlerInterface } from "../../interfaces/handler.interface";
 
 export async function verifyUser(email: string, password: string): Promise<HandlerInterface | boolean> {
     if (!email || !password) {

@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { userCreate } from '../user.controller';
 import { AppDataSource } from '../../../infrastructure/database/db';
 import { User } from '../../../domain/models/user/user.model';
 import { exceptionsHttp } from '../../http/exceptions';

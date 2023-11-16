@@ -5,7 +5,7 @@ import {createToken , decodeToken }from "../../infrastructure/jwt";
 import getCookie from "../../shared/regex.shared";
 import { LoginController } from "../controllers/auth/login.controller";
 import { RegisterController } from "../controllers/auth/register.controller";
-
+import { VerifyEmailMiddeleware } from "../http/middlewares/auth.middlewares";
 
 export const router = Router();
 
@@ -26,7 +26,7 @@ router.post('/v1/auth/login', LoginController);
  * @EXAMPLE http://YOU-DOMAIN:YOU-PORT/v1/auth/register
  */
 
-router.post('/v1/auth/register', RegisterController)
+router.post('/v1/auth/register', VerifyEmailMiddeleware, RegisterController)
 
 /**
  * 

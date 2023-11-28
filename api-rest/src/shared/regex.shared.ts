@@ -1,5 +1,7 @@
 
 const getCookie = (cookie: string): string => {
+
+    if(cookie.length <= 0) return '';
     
     const regex = /token=([A-Za-z0-9_.-]+)/;
     const match = cookie.match(regex);

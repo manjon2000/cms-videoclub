@@ -1,7 +1,6 @@
 import { Franchises } from "../../domain/franchises/franchises.model"
 import { AppDataSource } from "../../infrastructure/database/db"
 import { exceptionsHttp } from "../http/exceptions";
-import { HandlerInterface } from "./user.controller";
 import { Request, Response } from "express";
 
 export const FranchisesAll = async (req: Request, res: Response) => {

@@ -39,3 +39,19 @@ export async function getUser(email: string): Promise<HandlerInterface | object 
         return exceptionsHttp(500, error?.message as string);
     }
 }
+
+export async function verifyEmailExists(email: string): Promise<boolean | undefined> {
+    try {
+        if(email) {
+            const verify = await AppDataSource.getRepository(User).findOne({
+                where: {
+                    EMAIL: email
+                }
+            })
+    
+            return !!verify;
+        }
+    }catch(err) {
+        return false;
+    }
+}

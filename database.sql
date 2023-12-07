@@ -12,6 +12,7 @@
         name        VARCHAR(255),
         last_name   VARCHAR(255),
         email       VARCHAR(255),
+        password    TEXT,
         phone       INT DEFAULT NULL,
         created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at  TIMESTAMP,

@@ -1,19 +1,31 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
 
-@Entity({ name: 'usuario' }) // Especifica el nombre de la tabla
+@Entity({ name: 'users' })
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
-  ID: number; // Debe coincidir con el nombre de la columna en la tabla
+  id: number;
 
-  @Column({ name: 'NAME', type: 'varchar', length: 50 })
-  NAME: string;
+  @Column({ name: 'role_id', type: 'varchar', length: 255})
+  role_id: string;
 
-  @Column({ name: 'LAST_NAME', type: 'varchar', length: 50 })
-  LAST_NAME: string;
+  @Column({name: 'name', type: 'varchar', length: 255})
+  name: string;
 
-  @Column({ name: 'EMAIL', type: 'varchar', length: 100 })
-  EMAIL: string;
+  @Column({name: 'last_name', type: 'varchar', length: 255})
+  last_name: string;
 
-  @Column({ name: 'PASSWORD', type: 'varchar', length: 100 })
-  PASSWORD: string;
+  @Column({name: 'email', type: 'varchar', length: 255})
+  email: string;
+
+  @Column({name: 'password', type: 'varchar', length: 255})
+  password: string;
+
+  @Column({name: 'phone', type: 'number', length: 255})
+  phone: number;
+
+  @Column({name: 'create_at', type: 'timestamp'})
+  create_at: Date;
+
+  @Column({name: 'updated_at', type: 'timestamp'})
+  updated_at: Date;
 }

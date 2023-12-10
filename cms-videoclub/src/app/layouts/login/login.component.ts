@@ -8,8 +8,7 @@ import { LoginRequestInterface } from 'src/app/shared/interface/login.request.in
 import { AuthService } from 'src/app/shared/services/auth.service';
 import * as ui from 'src/app/shared/ui.actions';
 import * as authUser from 'src/app/auth/auth.actions';
-import Swal from 'sweetalert2'
-import { decodeToken } from 'src/app/utils/jwt';
+// import { decodeToken } from 'src/app/utils/jwt';
 
 @Component({
   selector: 'app-login',
@@ -54,34 +53,5 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.auth.signInWhitEmailAndPassword(email, password)?.subscribe((e: any) => {
       console.log(e)
     })
-
-    /**
-     *   if(e.code === 200) {
-        decodeToken().then((res) => {
-          console.log(res)
-        }).catch((err) => {
-          console.log(err);
-        })
-     */
-    /**
-     *   this.store.dispatch(authUser.setUser({
-        user: {
-          id: '123123',
-          usename: 'adsad',
-          email: email
-        }
-      }))
-     */
-    //this.store.dispatch(ui.stopLoading());
-    //this.router.navigate(['dashboard'])
-
-    /**
-     *   }else {
-    Swal.fire('Error', (e.response.message ? e.response.message : 'AAAH'), 'error')
-    this.store.dispatch(ui.stopLoading());
-  }
-})
-}
-     */
   }
 }

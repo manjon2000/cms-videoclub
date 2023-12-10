@@ -1,13 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-// Environment
-import { db } from 'src/environments/environment';
-
-// Firebase
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { getAuth, provideAuth } from '@angular/fire/auth';
 
 
 // ngrx
@@ -18,7 +11,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // Swal
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import {  AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +27,7 @@ import { FilmsEditComponent } from './pages/films/films.edit/films.edit.componen
 import { FilmsDeleteComponent } from './pages/films/films.delete/films.delete.component';
 import { DashboardPageComponent } from './pages/dashboard/dashboard.page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AlertComponent } from './components/alert/alert.component';
 
 
 
@@ -52,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     FilmsEditComponent,
     FilmsDeleteComponent,
     DashboardPageComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,10 +53,6 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
    
     HttpClientModule,
-    SweetAlert2Module.forRoot({}),
-    provideFirebaseApp(() => initializeApp(db.firebase)),
-    provideFirestore(() => getFirestore()),
-    provideAuth(() => getAuth()),
     StoreModule.forRoot(
       appReducers
     ),

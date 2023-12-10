@@ -52,16 +52,5 @@ export class RegisterComponent implements OnDestroy {
     const { username, email, password } = this.registerForm.value;
 
     if (this.registerForm.invalid) return;
-
-    this.authService.registerWhitEmailAndPassword(username, email, password)
-      .then(credentials => {
-        //console.log(credentials)
-        this.store.dispatch(ui.stopLoading())
-        this.router.navigate(['/'])
-      }).catch(err => {
-        this.store.dispatch(ui.stopLoading())
-        console.log(err)
-      })
-
   }
 }

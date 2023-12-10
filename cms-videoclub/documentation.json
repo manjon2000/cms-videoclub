@@ -1,0 +1,2913 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "AppState",
+            "id": "interface-AppState-58ce0ed21ea65d62d35c985522e57f6987afd7751a9a74f3b070f79c543dde198df17aeeb7b861f12777b56cac67fdee00bbb307190419e0aa01c8527802c100",
+            "file": "src/app/app.reducer.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { ActionReducerMap } from \"@ngrx/store\";\n\nimport * as ui from './shared/ui.reducer'\nimport * as auth from './auth/auth.reducer'\n\n\n\nexport interface AppState {\n    ui: ui.State;\n    auth: auth.State\n}\n\nexport const appReducers: ActionReducerMap<AppState> = {\n    ui: ui.uiReducer,\n    auth: auth._authReducer\n}",
+            "properties": [
+                {
+                    "name": "auth",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "auth.State",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "ui",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ui.State",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "ListItemsSubmenu",
+            "id": "interface-ListItemsSubmenu-118d85a0af48298abfebefe5cc28a056e27e1b7e2aec4779882da28a54266880e64252057624c176d56d57879986a8123ea98d68f5d92a31465ef1a0c56209b4",
+            "file": "src/app/components/list-dropdown/list-dropdown.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n\ninterface ListItemsSubmenu {\n  icon?: string;\n  title: string;\n  link: string;\n}\n\n@Component({\n  selector: 'ui-list-dropdown',\n  templateUrl: './list-dropdown.component.html',\n  styleUrls: ['./list-dropdown.component.scss']\n})\nexport class ListDropdownComponent {\n\n  @Input()\n  isActived: boolean = false;\n\n  @Input()\n  title!: string;\n\n  @Input()\n  iconItem!: string;\n\n  @Input()\n  itemLink!: string;\n\n  @Input()\n  isListDropdown!: boolean;\n\n  @Input()\n  listSubmenu!: ListItemsSubmenu[];\n\n\n  expandedListDropdown: boolean = false;\n\n  expandSubmenu() {\n    if(this.isListDropdown) {\n      this.expandedListDropdown = !this.expandedListDropdown; \n    }\n  }  \n}\n",
+            "properties": [
+                {
+                    "name": "icon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "link",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "LoginRequestInterface",
+            "id": "interface-LoginRequestInterface-173a5b43108f7894998c562da670b0f64b2e7f49c81c8f523efe7fd7b539b397e98d82a9a0517979b2bd72523830142d9d5f1bfa2464216d48ce4c891bf9c1eb",
+            "file": "src/app/shared/interface/login.request.interface.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface LoginRequestInterface {\n    response: {\n        code: number,\n        message: string;\n    }\n}",
+            "properties": [
+                {
+                    "name": "response",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "State",
+            "id": "interface-State-7da55278a0db50445ba4703410f9b8d2dfdb450aac06998e5e2f4f7f58e3d23820864668b267c306b07815419dfecff4513f6915cfd84027164ca2374ac9c450",
+            "file": "src/app/auth/auth.reducer.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Action, createReducer, on } from \"@ngrx/store\";\nimport * as actions from './auth.actions';\nimport { UserModel } from \"src/app/models/user/user.model\";\n\n\nexport interface State {\n    user?: UserModel | null\n}\n\n\nexport const initializeState: State = {\n    user: null\n} \n\nconst authReducer = createReducer(initializeState,\n    on(actions.setUser, (state, { user }) => ({ ...state, user })),\n    on(actions.unSetUser, state => ({ ...state, user: null })),\n);\n\n\n\nexport function _authReducer(state: State | any, action: Action | any) {\n    return authReducer(state, action)\n}",
+            "properties": [
+                {
+                    "name": "user",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "UserModel | null",
+                    "optional": true,
+                    "description": "",
+                    "line": 7
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "State",
+            "id": "interface-State-160279b021149e7370b6821c0d7f3a5283e6e9aa416bfeaab1cf36ce376ae1b4f863916dcf259e90928243a3b45979646a062955a4e3fc9cf88f01a54d7d6926-1",
+            "file": "src/app/shared/ui.reducer.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { createReducer, on } from \"@ngrx/store\";\nimport * as actions from './ui.actions'; \n\n\nexport interface State {\n    isLoading: boolean;\n}\n\nconst initializeApp: State = {\n    isLoading: false\n}\n\nconst _uiReducer = createReducer(initializeApp,\n    on(actions.isLoading,   (state => ({...state, isLoading: true}))),\n    on(actions.stopLoading, (state => ({...state, isLoading: false})))\n);\n\n\n\nexport function uiReducer(state: any, action: any) {\n    return _uiReducer(state, action);\n}\n\n",
+            "properties": [
+                {
+                    "name": "isLoading",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": [],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "State-1"
+        },
+        {
+            "name": "TaskWorkInterface",
+            "id": "interface-TaskWorkInterface-e7304c795e7a385334001fc35efe2e7e31bc045b246b20da92063827bca47cf3745446ea2a750f4bdd1118e922a6f589d17a785796daf8bb816d68e75487bcec",
+            "file": "src/app/shared/services/auth.service.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Injectable, inject } from '@angular/core';\n\n\nimport { Store } from '@ngrx/store';\n\nimport { map } from 'rxjs';\nimport { AppState } from 'src/app/app.reducer';\n\nimport * as auth from '../../auth/auth.actions';\nimport { UserModel } from 'src/app/models/user/user.model';\n\n\nimport { HttpClient } from  '@angular/common/http';\n\n\n\nexport interface UsersCollection {\n  uid: string,\n  name: string | null,\n  email: string | null,\n}\n\nexport interface TaskWorkInterface {\n  client: string;\n  hours: string;\n  description: string;\n}\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class AuthService {\n\n\n  constructor(\n    private store: Store<AppState>,\n    private http: HttpClient\n  ) { }\n\n\n  signInWhitEmailAndPassword(email: any, password: any): any {\n    const request = this.http.post('http://localhost:4000/v1/auth/login', {\n      email,\n      password\n    }, {\n      responseType: 'json',\n      withCredentials: true\n    })\n\n    if(!request) return null;\n\n    return request\n  }\n}",
+            "properties": [
+                {
+                    "name": "client",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 26
+                },
+                {
+                    "name": "hours",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "UsersCollection",
+            "id": "interface-UsersCollection-e7304c795e7a385334001fc35efe2e7e31bc045b246b20da92063827bca47cf3745446ea2a750f4bdd1118e922a6f589d17a785796daf8bb816d68e75487bcec",
+            "file": "src/app/shared/services/auth.service.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Injectable, inject } from '@angular/core';\n\n\nimport { Store } from '@ngrx/store';\n\nimport { map } from 'rxjs';\nimport { AppState } from 'src/app/app.reducer';\n\nimport * as auth from '../../auth/auth.actions';\nimport { UserModel } from 'src/app/models/user/user.model';\n\n\nimport { HttpClient } from  '@angular/common/http';\n\n\n\nexport interface UsersCollection {\n  uid: string,\n  name: string | null,\n  email: string | null,\n}\n\nexport interface TaskWorkInterface {\n  client: string;\n  hours: string;\n  description: string;\n}\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class AuthService {\n\n\n  constructor(\n    private store: Store<AppState>,\n    private http: HttpClient\n  ) { }\n\n\n  signInWhitEmailAndPassword(email: any, password: any): any {\n    const request = this.http.post('http://localhost:4000/v1/auth/login', {\n      email,\n      password\n    }, {\n      responseType: 'json',\n      withCredentials: true\n    })\n\n    if(!request) return null;\n\n    return request\n  }\n}",
+            "properties": [
+                {
+                    "name": "email",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                },
+                {
+                    "name": "uid",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        }
+    ],
+    "injectables": [
+        {
+            "name": "AuthService",
+            "id": "injectable-AuthService-e7304c795e7a385334001fc35efe2e7e31bc045b246b20da92063827bca47cf3745446ea2a750f4bdd1118e922a6f589d17a785796daf8bb816d68e75487bcec",
+            "file": "src/app/shared/services/auth.service.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "signInWhitEmailAndPassword",
+                    "args": [
+                        {
+                            "name": "email",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "password",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 41,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "email",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "password",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable, inject } from '@angular/core';\n\n\nimport { Store } from '@ngrx/store';\n\nimport { map } from 'rxjs';\nimport { AppState } from 'src/app/app.reducer';\n\nimport * as auth from '../../auth/auth.actions';\nimport { UserModel } from 'src/app/models/user/user.model';\n\n\nimport { HttpClient } from  '@angular/common/http';\n\n\n\nexport interface UsersCollection {\n  uid: string,\n  name: string | null,\n  email: string | null,\n}\n\nexport interface TaskWorkInterface {\n  client: string;\n  hours: string;\n  description: string;\n}\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class AuthService {\n\n\n  constructor(\n    private store: Store<AppState>,\n    private http: HttpClient\n  ) { }\n\n\n  signInWhitEmailAndPassword(email: any, password: any): any {\n    const request = this.http.post('http://localhost:4000/v1/auth/login', {\n      email,\n      password\n    }, {\n      responseType: 'json',\n      withCredentials: true\n    })\n\n    if(!request) return null;\n\n    return request\n  }\n}",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "store",
+                        "type": "Store<AppState>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 32,
+                "jsdoctags": [
+                    {
+                        "name": "store",
+                        "type": "Store<AppState>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [
+        {
+            "name": "UserModel",
+            "id": "class-UserModel-7745d639bbddbf626551bb457793b82e07a851d456b67fa7545d971ac4648000fa3af5993c821ad96ab0bb02a79032b0ea8664d926ce115e78dd7c18490dee99",
+            "file": "src/app/models/user/user.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export class UserModel {\n\n    constructor(\n        public id:      string | null,\n        public usename: string | null,\n        public email:   string | null,\n    ) {}\n}",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "id",
+                        "type": "string | null",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "usename",
+                        "type": "string | null",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "email",
+                        "type": "string | null",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 3,
+                "jsdoctags": [
+                    {
+                        "name": "id",
+                        "type": "string | null",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "usename",
+                        "type": "string | null",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "type": "string | null",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "properties": [
+                {
+                    "name": "email",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "usename",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
+                    "modifierKind": [
+                        125
+                    ]
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
+    "directives": [],
+    "components": [
+        {
+            "name": "AlertComponent",
+            "id": "component-AlertComponent-f91832bb53500f5846b0d94895f2027bd1fc4d3f24f0cbf47b5f2743ef773a3bbea34d802bbbb215862b0ba22afcef77c0810cb3402acc5c34a26c35438e0bad",
+            "file": "src/app/components/alert/alert.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-alert",
+            "styleUrls": [
+                "./alert.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./alert.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-alert',\n  templateUrl: './alert.component.html',\n  styleUrls: ['./alert.component.scss']\n})\nexport class AlertComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./alert.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"ui-alert\">\n    <div class=\"ui-alert__wrapper\">\n        <div class=\"ui-alert__icon\"></div>\n        <p class=\"ui-alert__text\">Lorem ipsum dolor sit amet.</p>\n    </div>\n</div>"
+        },
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-6d54fb46d56139ae9323b597b5c870ebbcc91037ea6c20ded58d82205e694b8b0fb6115d1333c9087b753578056266ccd5669eb9f2819acc76044ea4716c1815",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit, inject } from '@angular/core';\nimport { AuthService } from './shared/services/auth.service';\nimport { Observable, Subscription } from 'rxjs';\n\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent implements OnInit {\n\n  constructor(private auth: AuthService) {\n  }\n  ngOnInit(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./app.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "auth",
+                        "type": "AuthService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 11,
+                "jsdoctags": [
+                    {
+                        "name": "auth",
+                        "type": "AuthService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<router-outlet></router-outlet>"
+        },
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-a53fd738b978780d39fb5fcc9ae4cfe0088e57a1f6ce674862d57dab9192140bd1c05548a9910db0469a431142886e658ff2e761f15781b2ad430e58d64724d0",
+            "file": "src/stories/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-button",
+            "styleUrls": [
+                "./button.css"
+            ],
+            "styles": [],
+            "template": "<button   type=\"button\"\n   (click)=\"onClick.emit($event)\"\n   [ngClass]=\"classes\"\n   [ngStyle]=\"{ 'background-color': backgroundColor }\"\n >\n   {{ label }}\n </button>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "backgroundColor",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWhat background color to use\n",
+                    "description": "<p>What background color to use</p>\n",
+                    "line": 28,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "pos": 786,
+                            "end": 799,
+                            "flags": 16842752,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 334,
+                            "tagName": {
+                                "pos": 787,
+                                "end": 795,
+                                "flags": 16842752,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 80,
+                                "escapedText": "required"
+                            },
+                            "comment": ""
+                        }
+                    ],
+                    "rawdescription": "\n\nButton contents\n\n",
+                    "description": "<p>Button contents</p>\n",
+                    "line": 42,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "primary",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nIs this the principal call to action on the page?\n",
+                    "description": "<p>Is this the principal call to action on the page?</p>\n",
+                    "line": 22,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'medium'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nHow large should the button be?\n",
+                    "description": "<p>How large should the button be?</p>\n",
+                    "line": 34,
+                    "type": "\"small\" | \"medium\" | \"large\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nOptional click handler\n",
+                    "description": "<p>Optional click handler</p>\n",
+                    "line": 48,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  imports: [CommonModule],\n  template: ` <button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".storybook-button {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 3em;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n}\n.storybook-button--primary {\n  color: white;\n  background-color: #1ea7fd;\n}\n.storybook-button--secondary {\n  color: #333;\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\n}\n.storybook-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n.storybook-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n.storybook-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
+                    "styleUrl": "./button.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "[]",
+                        "returnType": "string[]",
+                        "line": 50
+                    }
+                }
+            }
+        },
+        {
+            "name": "DashboardComponent",
+            "id": "component-DashboardComponent-1f201a71edab175246a073d42234aff706f83b415071ac9be6e8b95a56ec18bdb79630af9d0c53248c3b99cfc40d10d372f992173598161904dccc8a2194b7b1",
+            "file": "src/app/layouts/auth/dashboard/dashboard.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ui-dashboard",
+            "styleUrls": [
+                "./dashboard.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./dashboard.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "expandMenu",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                },
+                {
+                    "name": "formTaskWork",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "userName",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string | null | undefined",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "expandedMenu",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "handlelogOut",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 33,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { FormBuilder, FormGroup, Validators } from '@angular/forms';\nimport { Router } from '@angular/router';\nimport { Store } from '@ngrx/store';\nimport { AppState } from 'src/app/app.reducer';\nimport { AuthService } from 'src/app/shared/services/auth.service';\nimport * as auth from '../../../auth/auth.actions'\n\n@Component({\n  selector: 'ui-dashboard',\n  templateUrl: './dashboard.component.html',\n  styleUrls: ['./dashboard.component.scss']\n})\nexport class DashboardComponent implements OnInit {\n\n  formTaskWork!: FormGroup;\n  userName!: string | null | undefined;\n  expandMenu: boolean = false;\n\n  constructor(\n    private auth: AuthService, \n    private router: Router,\n    private formBuilder: FormBuilder,\n    private store: Store<AppState>\n    ) {\n      this.formTaskWork = this.formBuilder.group({\n        client:       ['', [Validators.required, Validators.minLength(2)]],\n        hours:        ['', [Validators.required]],\n        description:  ['', [Validators.required, Validators.minLength(4)]]\n      })\n    }\n\n    ngOnInit(): void {\n      this.store.select('auth').subscribe( ({user}) => {\n        this.userName = user?.usename\n      })\n    }\n\n    expandedMenu(): void {\n      this.expandMenu = !this.expandMenu;\n      console.log(this.expandMenu)\n    }\n  \n\n  handlelogOut() {\n    this.store.dispatch(auth.unSetUser());\n    this.router.navigate(['/'])\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".ui-dashboard {\n    width: 100%;\n    height: 100vh;\n    overflow: hidden;\n\n    &__wrapper {\n        width: 100%;\n        height: 100vh;\n\n        @media (min-width: 900px) {\n            display: grid;\n            grid-template-columns: 250px auto;\n        }\n    }\n    &__sidebar {\n        max-width: 250px;\n        width: 80%;\n        height: inherit;\n        display: grid;\n        grid-template-rows: 200px auto auto;\n        gap: .5rem;\n        position: fixed;\n        padding: 1rem;\n        transition: cubic-bezier(.77,0,.18,1) .4s;\n        background-color: #161C25;\n        clip-path: circle(0% at 50% 50%);\n        z-index: 2;\n        opacity: 1;\n        overflow: auto;\n\n        @media (min-width: 900px) {\n            max-width: 100%;\n            width: 100%;\n            position: unset;\n            clip-path: none;\n        }\n\n        &__user {\n            width: 100%;\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n            gap: .8rem;\n            &-img {\n                width: 100px;\n                height: 100px;\n                border-radius: 50px;\n            }\n            &-welcome,\n            &-name {\n                color: #f1f0fd;\n            }\n\n            &-welcome {\n                font-weight: 600;\n                line-height: 22px;\n            }\n\n            &-name {\n                font-weight: 400;\n                font-size: small;\n                line-height: 22px;\n            }\n        }\n\n        &__menu {\n            width: 100%;\n            display: flex;\n            flex-direction: column;\n            gap: .8rem;\n            z-index: 2;\n        }\n\n        &__logout {\n            display: flex;\n            gap: .5rem;\n            align-self: flex-end;\n            color: #f1f0fd;\n            cursor: pointer;\n        }\n\n        &--actived {\n            clip-path: circle(100% at 50% 50%);\n            opacity: 1;\n        }\n    }\n    &__content {\n        width: 100%;\n        height: 100vh;\n        overflow: auto;\n\n        @media (min-width: 900px) {\n            padding: 1.255rem;\n        }\n    }\n\n    &__header {\n        display: flex;\n        align-items: center;\n        justify-content: space-between;\n        position: relative;\n        padding: 1.255rem 1.5rem;\n        background-color: #F2EAC2;\n        z-index: 1;\n         @media (min-width: 900px) {\n            display: none;\n         }\n    }\n}\n\n",
+                    "styleUrl": "./dashboard.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "auth",
+                        "type": "AuthService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "formBuilder",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "store",
+                        "type": "Store<AppState>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 18,
+                "jsdoctags": [
+                    {
+                        "name": "auth",
+                        "type": "AuthService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "formBuilder",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "store",
+                        "type": "Store<AppState>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"ui-dashboard\">\n\n    <div class=\"ui-dashboard__wrapper\">\n\n\n        <!-- Menu left -->\n        <div class=\"ui-dashboard__sidebar\" [class.ui-dashboard__sidebar--actived]=\"expandMenu\">\n\n            <div class=\"ui-dashboard__sidebar__user\">\n                <img src=\"https://fastly.picsum.photos/id/140/200/200.jpg?hmac=EslZ18xRW6ewC17GDNdn7zvrEZUx37IhZq5iWo9b4g8\"\n                    alt=\"profile image\" class=\"ui-dashboard__sidebar__user-img\">\n                <div class=\"ui-dashboard__sidebar__user-text\">\n                    <p class=\"ui-dashboard__sidebar__user-welcome\">Welcome</p>\n                    <p class=\"ui-dashboard__sidebar__user-name\">{{ userName }}</p>\n                </div>\n            </div>\n\n\n            <ul class=\"ui-dashboard__sidebar__menu\">\n                <ui-list-dropdown\n                    [isActived]=\"true\"\n                    [iconItem]=\"'fa-solid fa-house'\"\n                    [title]=\"'Home'\"\n                    [isListDropdown]=\"false\"\n                />\n\n                <ui-list-dropdown\n                    [iconItem]=\"'far fa-building'\"\n                    [title]=\"'Franchises'\"\n                    [isListDropdown]=\"true\"\n                    [listSubmenu]=\"[\n                        {icon: 'far fa-eye', title: 'View All', link: '/'},\n                        {icon: 'fa-solid fa-pen-to-square', title: 'Edit franchises', link: '/dashboard'},\n                        {icon: 'fa-solid fa-trash', title: 'Deleted franchises', link: '/dashboard'}\n                    ]\"\n                />\n                \n                <ui-list-dropdown\n                    [iconItem]=\"'fas fa-users'\"\n                    [title]=\"'Employees'\"\n                    [isListDropdown]=\"true\"\n                    [listSubmenu]=\"[\n                        {icon: 'far fa-eye', title: 'View All', link: 'employees'},\n                        {icon: 'fa-solid fa-pen-to-square', title: 'Edit Employees', link: '/employees/edit'},\n                        {icon: 'fa-solid fa-trash', title: 'Deleted Employees', link: 'employees/delete'}\n                    ]\"\n                />\n                <ui-list-dropdown\n                    [iconItem]=\"'fas fa-film'\"\n                    [title]=\"'Films'\"\n                    [isListDropdown]=\"true\"\n                    [listSubmenu]=\"[\n                        {icon: 'far fa-eye', title: 'View All', link: '/'},\n                        {icon: 'fa-solid fa-pen-to-square', title: 'Edit Films', link: '/dashboard'},\n                        {icon: 'fa-solid fa-trash', title: 'Deleted Films', link: '/dashboard'}\n                    ]\"\n                />\n            </ul>\n\n\n            <button type=\"button\" class=\"ui-dashboard__sidebar__logout\" (click)=\"handlelogOut()\">\n                <em class=\"fa-solid fa-right-from-bracket\"></em>\n                LOGOUT\n            </button>\n\n\n\n        </div>\n        <!-- //Menu left -->\n\n        <!-- Content-->\n        <div class=\"ui-dashboard__content\">\n            <header class=\"ui-dashboard__header\">\n                <h1>\n                    <a href=\"http://\">\n                        DASHBOARD\n                    </a>\n                </h1>\n                <div (click)=\"expandedMenu()\">\n                    <em class=\"fa-solid fa-bars\"></em>\n                </div>\n            </header>\n            <ng-content></ng-content>\n        </div>\n        <!-- //Content-->\n    </div>\n</div>"
+        },
+        {
+            "name": "DashboardPageComponent",
+            "id": "component-DashboardPageComponent-1b2a4d2a3b468e8719bd5063ba61db63b25ba03e47a5255561b64e00eaf537b06f214c08b6791800f6f7fd19b275ff5b1e571fab100f20b23bef206856d6e953",
+            "file": "src/app/pages/dashboard/dashboard.page.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-dashboard.page",
+            "styleUrls": [
+                "./dashboard.page.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./dashboard.page.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-dashboard.page',\n  templateUrl: './dashboard.page.component.html',\n  styleUrls: ['./dashboard.page.component.scss']\n})\nexport class DashboardPageComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".ui-card {\n\n    width: 100%;\n    min-height: 100px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 1rem;\n    background-color: rgb(114, 103, 239);\n    border: 1px solid #DBDBDB;\n    border-radius: 4px;\n    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);\n    @media (min-width: 1366px) {\n        height: 125px;\n    }\n\n    &--secondary {\n        background-color: #3ca0e2;\n    }\n    &--terciary {\n        background-color: #a56ff7;\n    }\n\n    &__info {\n        display: flex;\n        flex-direction: column;\n        gap: .5rem;\n        color: #f1f0fd;\n\n        &-h3 {\n            font-weight: bold;\n            font-size: 1.255em;\n        }\n        &-p {\n            font-weight: 500;\n            font-size: 1em;\n        }\n    }\n\n    &__icon {\n        align-self: center;\n        font-size: 2rem;\n        color: #f1f0fd;\n        padding: 1.255rem 0rem;\n    }\n\n    &__list {\n        width: 100%;\n        height: max-content;\n        display: grid;\n        gap: 1.255rem;\n        padding: 1rem 1.5rem;\n\n        @media (min-width: 600px) {\n            gap: .4rem;\n            grid-template-columns: repeat(3, 1fr);\n        }\n        @media (min-width: 1366px) {\n            gap: 1.25rem;\n        }\n    }\n}\n\n.ui-grid {\n    width: 100%;\n    min-height: 300px;\n    display: grid;\n    gap: 1rem;\n    padding: 1rem 1.5rem;\n    &--two-columns {\n        @media (min-width: 1280px) {\n            grid-template-columns: repeat(2, 1fr);\n        }\n    }\n}\n.ui-table {\n    width: 100%;\n    height: max-content;\n    border: 1px solid #EEEEEE;\n    border-radius: 4px;\n    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);\n\n    &__head {\n        display: flex;\n        align-items: center;\n        justify-content: space-between;\n        border-bottom: 1px solid #EEEEEE;\n        &-title {\n            padding: 1rem;\n            font-weight: 600;\n            color: #161C25;\n        }\n        &-link {\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            gap: .5rem;\n            padding-right: 1rem;            \n            font-weight: 600;\n            font-size: .875rem;\n            color: rgb(114, 103, 239);\n\n            &:hover {\n                color: #7267ef90;\n            }\n        }\n    }\n    &__body {\n        display: flex;\n        flex-direction: column;\n        gap: 1.255rem;\n        padding: 1rem;\n\n        &-item {\n            display: grid;\n            align-items: center;\n            place-items: center;\n            grid-template-columns: repeat(5, 1fr);\n            \n            &:not(:last-child) {\n                padding-bottom: 1rem;\n                border-bottom: 1px solid #eeeeee;\n            }\n        }\n    }\n}\n\n.ui-table__film {\n    &-name {\n        justify-self: flex-start;\n        color: #161C25;\n        font-weight: 600;\n        font-size: .8rem;\n    }\n    &-img {\n        width:  35px;\n        height: 35px;\n    }\n    &-price {\n        font-weight: 600;\n        font-size: .8rem;\n    }\n    &-actions {\n        display: flex;\n        gap: .8rem;\n        justify-self: flex-end;\n\n        &-edit {\n            color: #ced203;\n        }\n        &-trash {\n            color: #930000;\n        }\n    }\n}\n.ui-tag {\n    width: fit-content;\n    height: max-content;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: .4rem .8rem;\n    font-weight: bold;\n    font-size: .5em;\n    border-radius: 2px;\n\n    &--success {\n        background-color: green;\n        color: #4be94b;\n    }\n\n    &--warning {\n        background-color: #982901;\n        color: #f1622f;\n    }\n\n    &--danger {\n        background-color: #930000;\n        color: #f67373;\n    }\n}",
+                    "styleUrl": "./dashboard.page.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<ui-dashboard>\n\n    <div class=\"ui-headling\">\n        <h2 class=\"ui-headling__h2\">Overview</h2>\n        <p class=\"ui-headling__p\">Welcome back, Bella! Your progress is really good. Keep it\n            up</p>\n    </div>\n\n    <div class=\"ui-card__list\">\n        <div class=\"ui-card\">\n            <div class=\"ui-card__info\">\n                <h3 class=\"ui-card__info-h3\">Total Orders:</h3>\n                <p class=\"ui-card__info-p\">15,890</p>\n            </div>\n            <em class=\"fa-solid fa-podcast fa-xs ui-card__icon\"></em>\n        </div>\n        <div class=\"ui-card ui-card--secondary\">\n            <div class=\"ui-card__info\">\n                <h3 class=\"ui-card__info-h3\">Total Orders:</h3>\n                <p class=\"ui-card__info-p\">15,890</p>\n            </div>\n            <em class=\"fa-solid fa-podcast fa-xs ui-card__icon\"></em>\n        </div>\n        <div class=\"ui-card ui-card--terciary\">\n            <div class=\"ui-card__info\">\n                <h3 class=\"ui-card__info-h3\">Total Orders:</h3>\n                <p class=\"ui-card__info-p\">15,890</p>\n            </div>\n            <em class=\"fa-solid fa-podcast fa-xs ui-card__icon\"></em>\n        </div>\n    </div>\n\n    <div class=\"ui-grid ui-grid--two-columns\">\n\n        <div class=\"ui-table\">\n            <div class=\"ui-table__head\">\n                <h3 class=\"ui-table__head-title\">Films</h3>\n                <a href=\"#\" class=\"ui-table__head-link\">View more</a>\n            </div>\n            <div class=\"ui-table__body\">\n                <div class=\"ui-table__body-item\">\n                    <h4 class=\"ui-table__film-name\">Sofa</h4>\n                    <img src=\"https://dashboardkit.io/bootstrap/assets/images/widget/p4.jpg\" alt=\"Sofa\"\n                        class=\"ui-table__film-img\" />\n                    <button class=\"ui-tag ui-tag--success\">STOCK</button>\n                    <p class=\"ui-table__film-price\">86€</p>\n                    <div class=\"ui-table__film-actions\">\n                        <em class=\"fa-solid fa-pen-to-square ui-table__film-actions-edit\"></em>\n                        <em class=\"fa-solid fa-trash ui-table__film-actions-trash\"></em>\n                    </div>\n                </div>\n                <div class=\"ui-table__body-item\">\n                    <h4 class=\"ui-table__film-name\">Sofa</h4>\n                    <img src=\"https://dashboardkit.io/bootstrap/assets/images/widget/p4.jpg\" alt=\"Sofa\"\n                        class=\"ui-table__film-img\" />\n                    <button class=\"ui-tag ui-tag--danger\">NOT STOCK</button>\n                    <p class=\"ui-table__film-price\">86€</p>\n                    <div class=\"ui-table__film-actions\">\n                        <em class=\"fa-solid fa-pen-to-square ui-table__film-actions-edit\"></em>\n                        <em class=\"fa-solid fa-trash ui-table__film-actions-trash\"></em>\n                    </div>\n                </div>\n                <div class=\"ui-table__body-item\">\n                    <h4 class=\"ui-table__film-name\">Sofa</h4>\n                    <img src=\"https://dashboardkit.io/bootstrap/assets/images/widget/p4.jpg\" alt=\"Sofa\"\n                        class=\"ui-table__film-img\" />\n                    <button class=\"ui-tag ui-tag--warning\">2 ITEMS TOTAL</button>\n                    <p class=\"ui-table__film-price\">86€</p>\n                    <div class=\"ui-table__film-actions\">\n                        <em class=\"fa-solid fa-pen-to-square ui-table__film-actions-edit\"></em>\n                        <em class=\"fa-solid fa-trash ui-table__film-actions-trash\"></em>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"ui-table\">\n            <div class=\"ui-table__head\">\n                <h3 class=\"ui-table__head-title\">Films</h3>\n            </div>\n            <div class=\"ui-table__body\">\n                <div class=\"ui-table__body-item\">\n                    <h4 class=\"ui-table__film-name\">Sofa</h4>\n                    <img src=\"https://dashboardkit.io/bootstrap/assets/images/widget/p4.jpg\" alt=\"Sofa\"\n                        class=\"ui-table__film-img\" />\n                    <button class=\"ui-tag ui-tag--success\">STOCK</button>\n                    <p class=\"ui-table__film-price\">86€</p>\n                    <div class=\"ui-table__film-actions\">\n                        <em class=\"fa-solid fa-pen-to-square ui-table__film-actions-edit\"></em>\n                        <em class=\"fa-solid fa-trash ui-table__film-actions-trash\"></em>\n                    </div>\n                </div>\n                <div class=\"ui-table__body-item\">\n                    <h4 class=\"ui-table__film-name\">Sofa</h4>\n                    <img src=\"https://dashboardkit.io/bootstrap/assets/images/widget/p4.jpg\" alt=\"Sofa\"\n                        class=\"ui-table__film-img\" />\n                    <button class=\"ui-tag ui-tag--success\">STOCK</button>\n                    <p class=\"ui-table__film-price\">86€</p>\n                    <div class=\"ui-table__film-actions\">\n                        <em class=\"fa-solid fa-pen-to-square ui-table__film-actions-edit\"></em>\n                        <em class=\"fa-solid fa-trash ui-table__film-actions-trash\"></em>\n                    </div>\n                </div>\n                <div class=\"ui-table__body-item\">\n                    <h4 class=\"ui-table__film-name\">Sofa</h4>\n                    <img src=\"https://dashboardkit.io/bootstrap/assets/images/widget/p4.jpg\" alt=\"Sofa\"\n                        class=\"ui-table__film-img\" />\n                    <button class=\"ui-tag ui-tag--success\">STOCK</button>\n                    <p class=\"ui-table__film-price\">86€</p>\n                    <div class=\"ui-table__film-actions\">\n                        <em class=\"fa-solid fa-pen-to-square ui-table__film-actions-edit\"></em>\n                        <em class=\"fa-solid fa-trash ui-table__film-actions-trash\"></em>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</ui-dashboard>\n"
+        },
+        {
+            "name": "EmployeesDeleteComponent",
+            "id": "component-EmployeesDeleteComponent-c653a71f608d9c6c06a9a7441133d298399037ab01975b1cdd95dd6bf17795646d96cbc714c2ee59301ba1d94764f570a7706584634487462241efcf090928b7",
+            "file": "src/app/pages/employees/employees.delete/employees.delete.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-employees.delete",
+            "styleUrls": [
+                "./employees.delete.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./employees.delete.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-employees.delete',\n  templateUrl: './employees.delete.component.html',\n  styleUrls: ['./employees.delete.component.scss']\n})\nexport class EmployeesDeleteComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./employees.delete.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>employees.delete works!</p>\n"
+        },
+        {
+            "name": "EmployeesEditComponent",
+            "id": "component-EmployeesEditComponent-4030bb2a9c7e6766e89ed344a518c01a625a08f3f95422b56682f488004e772db8c27b4a971feaaf27896b76b3825a51e2b1ee261254c10f88970caaeb94e021",
+            "file": "src/app/pages/employees/employees.edit/employees.edit.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-employees.edit",
+            "styleUrls": [
+                "./employees.edit.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./employees.edit.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-employees.edit',\n  templateUrl: './employees.edit.component.html',\n  styleUrls: ['./employees.edit.component.scss']\n})\nexport class EmployeesEditComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./employees.edit.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>employees.edit works!</p>\n"
+        },
+        {
+            "name": "EmployeesIndexComponent",
+            "id": "component-EmployeesIndexComponent-bf06b00ffa053b85c145a6d84752a41993f229ebc78371c5069459e814d571b9edcbc58243fc8ea43d091fd4714e3a3810b9abe7dedffd6e1ad06e7dc46ff231",
+            "file": "src/app/pages/employees/employees.index/employees.index.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-employees.index",
+            "styleUrls": [
+                "./employees.index.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./employees.index.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-employees.index',\n  templateUrl: './employees.index.component.html',\n  styleUrls: ['./employees.index.component.scss']\n})\nexport class EmployeesIndexComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".ui-employees {\n    --ui-employees-columns: 2;\n    width: 100%;\n    height: max-content;\n    padding: 1.5rem;\n    &__wrapper {\n        width: 100%;\n        height: auto;\n        display: grid;\n        gap: 1.5rem;\n\n        @media (min-width: 475px) {\n            grid-template-columns: \n                repeat(\n                    var(--ui-employees-columns),\n                    1fr\n                );\n        }\n\n        @media (min-width: 640px) {\n            --ui-employees-columns: 2;\n        }\n\n        @media (min-width: 900px) {\n            --ui-employees-columns: 3;\n        }\n\n        @media (min-width: 1280px) {\n            --ui-employees-columns: 4;\n        }\n\n        \n    }\n\n\n    &__card {\n        width: 100%;\n        height: auto;\n        border: 1px solid #EEEEEE;\n        border-radius: 4px;\n        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);\n\n        &-image {\n            width: 100px;\n            height: 100px;\n            margin: 0 auto;\n            margin-top: -20px;\n            border-radius: 50px;\n        }\n\n        &__body {\n            padding: 1.5rem 1rem;\n        }\n\n        &__wrapper {\n            display: flex;\n            align-items: center;\n            justify-content: space-between;\n        }\n\n        &-name {\n            max-width: 15ch;\n            font-weight: 600;\n            font-size: 1rem;\n            white-space: nowrap;\n            text-overflow: ellipsis;\n            overflow: hidden;\n        }\n\n        &-actions {\n            display: flex;\n            align-items: center;\n            gap: .5rem;\n            cursor: pointer;\n\n            &-edit {\n                color: rgb(245, 84, 21);\n            }\n\n            &-trash {\n                color: rgb(169, 32, 32);\n            }\n        }\n    }\n}",
+                    "styleUrl": "./employees.index.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<ui-dashboard>\n    <div class=\"ui-headling\">\n        <h2 class=\"ui-headling__h2\">Employees</h2>\n        <p class=\"ui-headling__p\">Welcome back, Bella! Your progress is really good. Keep it\n            up</p>\n    </div>\n\n    <div class=\"ui-employees\">\n        <div class=\"ui-employees__wrapper\">\n            <!-- ITEM -->\n            <div class=\"ui-employees__card\">\n                <img src=\"https://images.unsplash.com/photo-1484863137850-59afcfe05386?auto=format&fit=crop&q=80&w=1742&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n                    alt=\"employee\" class=\"ui-employees__card-image\" />\n                <div class=\"ui-employees__card__body\">\n                    <div class=\"ui-employees__card__wrapper\">\n                        <h3 title=\"Virtu\" class=\"ui-employees__card-name\">Virtuanista</h3>\n                        <div class=\"ui-employees__card-actions\">\n                            <em class=\"fa-solid fa-pen-to-square ui-employees__card-actions-edit\"></em>\n                            <em class=\"fa-solid fa-trash ui-employees__card-actions-trash\"></em>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!-- //ITEM -->\n             <!-- ITEM -->\n             <div class=\"ui-employees__card\">\n                <img src=\"https://images.unsplash.com/photo-1484863137850-59afcfe05386?auto=format&fit=crop&q=80&w=1742&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n                    alt=\"employee\" class=\"ui-employees__card-image\" />\n                <div class=\"ui-employees__card__body\">\n                    <div class=\"ui-employees__card__wrapper\">\n                        <h3 title=\"Virtu\" class=\"ui-employees__card-name\">Virtuanista</h3>\n                        <div class=\"ui-employees__card-actions\">\n                            <em class=\"fa-solid fa-pen-to-square ui-employees__card-actions-edit\"></em>\n                            <em class=\"fa-solid fa-trash ui-employees__card-actions-trash\"></em>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!-- //ITEM -->\n             <!-- ITEM -->\n             <div class=\"ui-employees__card\">\n                <img src=\"https://images.unsplash.com/photo-1484863137850-59afcfe05386?auto=format&fit=crop&q=80&w=1742&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n                    alt=\"employee\" class=\"ui-employees__card-image\" />\n                <div class=\"ui-employees__card__body\">\n                    <div class=\"ui-employees__card__wrapper\">\n                        <h3 title=\"Virtu\" class=\"ui-employees__card-name\">Virtuanista</h3>\n                        <div class=\"ui-employees__card-actions\">\n                            <em class=\"fa-solid fa-pen-to-square ui-employees__card-actions-edit\"></em>\n                            <em class=\"fa-solid fa-trash ui-employees__card-actions-trash\"></em>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!-- //ITEM -->\n             <!-- ITEM -->\n             <div class=\"ui-employees__card\">\n                <img src=\"https://images.unsplash.com/photo-1484863137850-59afcfe05386?auto=format&fit=crop&q=80&w=1742&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n                    alt=\"employee\" class=\"ui-employees__card-image\" />\n                <div class=\"ui-employees__card__body\">\n                    <div class=\"ui-employees__card__wrapper\">\n                        <h3 title=\"Virtu\" class=\"ui-employees__card-name\">Virtuanista</h3>\n                        <div class=\"ui-employees__card-actions\">\n                            <em class=\"fa-solid fa-pen-to-square ui-employees__card-actions-edit\"></em>\n                            <em class=\"fa-solid fa-trash ui-employees__card-actions-trash\"></em>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!-- //ITEM -->\n             <!-- ITEM -->\n             <div class=\"ui-employees__card\">\n                <img src=\"https://images.unsplash.com/photo-1484863137850-59afcfe05386?auto=format&fit=crop&q=80&w=1742&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n                    alt=\"employee\" class=\"ui-employees__card-image\" />\n                <div class=\"ui-employees__card__body\">\n                    <div class=\"ui-employees__card__wrapper\">\n                        <h3 title=\"Virtu\" class=\"ui-employees__card-name\">Virtuanista</h3>\n                        <div class=\"ui-employees__card-actions\">\n                            <em class=\"fa-solid fa-pen-to-square ui-employees__card-actions-edit\"></em>\n                            <em class=\"fa-solid fa-trash ui-employees__card-actions-trash\"></em>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!-- //ITEM -->\n        </div>\n    </div>\n</ui-dashboard>"
+        },
+        {
+            "name": "FilmsDeleteComponent",
+            "id": "component-FilmsDeleteComponent-a22bb3ed16b3c6f74f97ec18ed94afd8abbfa1a5e227de6aa4b0deefd9e01283645d5cb7e80c87b2a96bcb9c1474fd08cf89426ce24164039591d4fc49bc31c4",
+            "file": "src/app/pages/films/films.delete/films.delete.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-films.delete",
+            "styleUrls": [
+                "./films.delete.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./films.delete.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-films.delete',\n  templateUrl: './films.delete.component.html',\n  styleUrls: ['./films.delete.component.scss']\n})\nexport class FilmsDeleteComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./films.delete.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>films.delete works!</p>\n"
+        },
+        {
+            "name": "FilmsEditComponent",
+            "id": "component-FilmsEditComponent-c7518da228a00af785110addaedf8467a7065c8b48f612342f59bc8abac63fe0fa06be213a5f1c821c257b05e3aa4337857198d49192961832e5731e1854928a",
+            "file": "src/app/pages/films/films.edit/films.edit.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-films.edit",
+            "styleUrls": [
+                "./films.edit.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./films.edit.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-films.edit',\n  templateUrl: './films.edit.component.html',\n  styleUrls: ['./films.edit.component.scss']\n})\nexport class FilmsEditComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./films.edit.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>films.edit works!</p>\n"
+        },
+        {
+            "name": "FilmsIndexComponent",
+            "id": "component-FilmsIndexComponent-cb5d8f6405a849e25bfc8e391e3dffd6f7f83de0bdd3f09a94bd0f2078f5dc7e32a643149b88aeb66e46d7fbdc9abadf8aa77440d11b2e7d83e98b9bf767c4fa",
+            "file": "src/app/pages/films/films.index/films.index.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-films.index",
+            "styleUrls": [
+                "./films.index.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./films.index.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-films.index',\n  templateUrl: './films.index.component.html',\n  styleUrls: ['./films.index.component.scss']\n})\nexport class FilmsIndexComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./films.index.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>films.index works!</p>\n"
+        },
+        {
+            "name": "ListDropdownComponent",
+            "id": "component-ListDropdownComponent-118d85a0af48298abfebefe5cc28a056e27e1b7e2aec4779882da28a54266880e64252057624c176d56d57879986a8123ea98d68f5d92a31465ef1a0c56209b4",
+            "file": "src/app/components/list-dropdown/list-dropdown.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ui-list-dropdown",
+            "styleUrls": [
+                "./list-dropdown.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./list-dropdown.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "iconItem",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "isActived",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isListDropdown",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "itemLink",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "listSubmenu",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "ListItemsSubmenu[]",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "expandedListDropdown",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 36
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "expandSubmenu",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n\ninterface ListItemsSubmenu {\n  icon?: string;\n  title: string;\n  link: string;\n}\n\n@Component({\n  selector: 'ui-list-dropdown',\n  templateUrl: './list-dropdown.component.html',\n  styleUrls: ['./list-dropdown.component.scss']\n})\nexport class ListDropdownComponent {\n\n  @Input()\n  isActived: boolean = false;\n\n  @Input()\n  title!: string;\n\n  @Input()\n  iconItem!: string;\n\n  @Input()\n  itemLink!: string;\n\n  @Input()\n  isListDropdown!: boolean;\n\n  @Input()\n  listSubmenu!: ListItemsSubmenu[];\n\n\n  expandedListDropdown: boolean = false;\n\n  expandSubmenu() {\n    if(this.isListDropdown) {\n      this.expandedListDropdown = !this.expandedListDropdown; \n    }\n  }  \n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".ui-list-dropdown {\n    width: 100%;\n    height: max-content;\n    padding: .8rem;\n    border-radius: 4px;\n    cursor: pointer;\n    user-select: none;\n    \n    &:hover {\n        background-color: #232932;\n    }\n\n    &-a {\n        width: 100%;\n        display: grid;\n        grid-template-columns: auto auto;\n        font-size: 1rem;\n        color: #f1f0fd;\n\n        &__wrapper {\n            display: flex;\n            gap: .8rem;\n            align-items: center;\n        }\n\n        & em {\n            align-self: center;\n            font-size: .8rem;\n            color: #dbdbdb;\n        }\n    }\n\n    &-angle {\n        justify-self: flex-end;\n        align-self: center;\n        font-size: .8rem;\n        color: #FFFFFF;\n        transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) .4s;\n        \n        &--rotate {\n            transform: rotate(180deg);\n        }\n    }\n\n    &-submenu {\n        display: flex;\n        flex-direction: column;\n        gap: .5rem;\n        animation: collapse ease-in-out .1s forwards;\n        background-color: #232932;\n        opacity: 0;\n        border-radius: 4px;\n        font-size: .88rem;\n        color: #f1f0fd;\n\n        &-item {\n            width: 100%;\n            height: max-content;\n            background-color: #161C25;\n            border-radius: inherit;\n            padding: .8rem;\n\n            &-a {\n                width: 100%;\n                height: 100%;\n                display: flex;\n                align-items: center;\n                gap: .8rem;\n                font-size: .8rem;\n            }\n        }\n\n        &--actived {\n            opacity: 1;\n            margin-top: 1.5rem;\n            animation: expand ease-in-out .4s forwards;\n        }\n    }\n\n    &--actived {\n        background-color: #232932;\n    }\n}\n\n@keyframes expand {\n    from {\n        height: 0;\n        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);\n    }\n    to {\n        height: auto;\n        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);\n    }\n}\n@keyframes collapse {\n    from {\n        height: auto;\n        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);\n    }\n\n    to {\n        height: 0;\n        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);\n    }\n}",
+                    "styleUrl": "./list-dropdown.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<li class=\"ui-list-dropdown\" (click)=\"expandSubmenu()\" [class.ui-list-dropdown--actived]=\"expandedListDropdown || isActived\">\r\n    <a [routerLink]=\"itemLink\" class=\"ui-list-dropdown-a\">\r\n        <div class=\"ui-list-dropdown-a__wrapper\">\r\n            <em class=\"{{iconItem}}\"></em>\r\n            {{title}}\r\n        </div>\r\n        <em *ngIf=\"isListDropdown\" class=\"fa-solid fa-angle-down ui-list-dropdown-angle\"\r\n            [class.ui-list-dropdown-angle--rotate]=\"expandedListDropdown\">\r\n        </em>\r\n    </a>\r\n\r\n    <ul *ngIf=\"isListDropdown\" class=\"ui-list-dropdown-submenu\"\r\n        [class.ui-list-dropdown-submenu--actived]=\"expandedListDropdown\">\r\n        <li class=\"ui-list-dropdown-submenu-item\" *ngFor=\"let item of listSubmenu\">\r\n            <a routerLink=\"/{{item.link}}\" class=\"ui-list-dropdown-submenu-item-a\">\r\n                <em *ngIf=\"item.icon\" class=\"{{item.icon}}\"></em>\r\n                {{ item.title }}\r\n            </a>\r\n        </li>\r\n    </ul>\r\n</li>"
+        },
+        {
+            "name": "LoginComponent",
+            "id": "component-LoginComponent-6141b685fec9013c5f3c237866e548394bd477897a322146ef9b8f23e9b89204ebb866ae3fe0269c26a2a690c82d0f4cbd2334a238910f6f88339e43f976563b",
+            "file": "src/app/layouts/login/login.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-login",
+            "styleUrls": [
+                "./login.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./login.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "loading",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                },
+                {
+                    "name": "loginForm",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
+                {
+                    "name": "uiSubscription",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Subscription",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "login",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 41,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnDestroy, OnInit } from '@angular/core';\nimport { FormBuilder, FormGroup, Validators } from '@angular/forms';\nimport { Router } from '@angular/router';\nimport { Store } from '@ngrx/store';\nimport { Subscription } from 'rxjs';\nimport { AppState } from 'src/app/app.reducer';\nimport { LoginRequestInterface } from 'src/app/shared/interface/login.request.interface';\nimport { AuthService } from 'src/app/shared/services/auth.service';\nimport * as ui from 'src/app/shared/ui.actions';\nimport * as authUser from 'src/app/auth/auth.actions';\n// import { decodeToken } from 'src/app/utils/jwt';\n\n@Component({\n  selector: 'app-login',\n  templateUrl: './login.component.html',\n  styleUrls: ['./login.component.scss']\n})\nexport class LoginComponent implements OnInit, OnDestroy {\n\n  loginForm!: FormGroup;\n  loading!: boolean;\n  uiSubscription!: Subscription;\n\n  constructor(\n    private store: Store<AppState>,\n    private auth: AuthService,\n    private formBuilder: FormBuilder,\n    private router: Router) { }\n\n  ngOnInit(): void {\n    this.loginForm = this.formBuilder.group({\n      email: ['', [Validators.required, Validators.email]],\n      password: ['', [Validators.required, Validators.min(6)]]\n    });\n\n    this.uiSubscription = this.store.select('ui').subscribe(ui => {\n      this.loading = ui.isLoading\n    });\n  }\n\n  ngOnDestroy(): void {\n    this.uiSubscription.unsubscribe();\n  }\n\n  login(event: Event) {\n    event.preventDefault();\n    if (this.loginForm.invalid) { return; }\n\n    const { email, password } = this.loginForm.value;\n\n    this.store.dispatch(ui.isLoading());\n\n    this.auth.signInWhitEmailAndPassword(email, password)?.subscribe((e: any) => {\n      console.log(e)\n    })\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./login.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "store",
+                        "type": "Store<AppState>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "auth",
+                        "type": "AuthService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "formBuilder",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 22,
+                "jsdoctags": [
+                    {
+                        "name": "store",
+                        "type": "Store<AppState>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "auth",
+                        "type": "AuthService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "formBuilder",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "implements": [
+                "OnInit",
+                "OnDestroy"
+            ],
+            "templateData": "<div class=\"container w-50 min-vh-100 d-flex justify-content-center align-items-center mt-3\">\n    <div class=\"col w-100 border border-light rounded shadow p-5\">\n        <h1>LOGIN</h1>\n        <form class=\"mb-5\" [formGroup]=\"loginForm\" (ngSubmit)=\"login($event)\">\n            <div class=\"mb-3\">\n                <label for=\"\" class=\"form-label\">Email</label>\n                <input type=\"text\" class=\"form-control\" formControlName=\"email\" aria-describedby=\"helpId\"\n                    placeholder=\"\">\n                <small id=\"helpId\" class=\"form-text text-muted\">*Help text</small>\n            </div>\n            <div class=\"mb-3\">\n                <label for=\"login-password\" class=\"form-label\">Password</label>\n                <input type=\"password\" id=\"login-password\" class=\"form-control\" formControlName=\"password\"\n                    aria-describedby=\"helpId\" placeholder=\"\">\n                <small id=\"helpId\" class=\"form-text text-muted\">*Help text</small>\n            </div>\n            <button [disabled]=\"loginForm.invalid\" type=\"submit\" class=\"w-100 btn btn-primary\">\n                <span *ngIf=\"loading\" class=\"fa-solid fa-sync \n             fa-spin fa-sm text-white me-2\">\n                </span>\n                <span *ngIf=\"!loading\">Login</span>\n                <span *ngIf=\"loading\">Loading </span>\n            </button>\n        </form>\n        <a routerLink=\"/register\">¿No tienes cuenta? <span>registrate</span></a>\n    </div>\n</div>"
+        },
+        {
+            "name": "RegisterComponent",
+            "id": "component-RegisterComponent-8c95801673da14f192c59fd1bb257334f1d2e8e521dc6e4fa12660f8bb8dd856cfd3c3cb5a3aadea954376f1e8c096f40be2b210e11ea767a3a1f754364c407d",
+            "file": "src/app/layouts/register/register.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-register",
+            "styleUrls": [
+                "./register.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./register.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "loading",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
+                {
+                    "name": "registerForm",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
+                {
+                    "name": "uiSubscribe",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Subscription",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "setUser",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 44,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnDestroy } from '@angular/core';\nimport { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';\nimport { Router } from '@angular/router';\nimport { Store } from '@ngrx/store';\nimport { Subscription } from 'rxjs';\nimport { AppState } from 'src/app/app.reducer';\nimport { AuthService } from 'src/app/shared/services/auth.service';\nimport * as ui from '../../shared/ui.actions';\n\n@Component({\n  selector: 'app-register',\n  templateUrl: './register.component.html',\n  styleUrls: ['./register.component.scss']\n})\nexport class RegisterComponent implements OnDestroy {\n\n  loading!: boolean;\n  uiSubscribe!: Subscription;\n\n  registerForm!: FormGroup;\n\n  constructor(\n    private authService: AuthService,\n    private router: Router,\n    private store: Store<AppState>,\n    private formBuilder: FormBuilder\n  ) {\n    this.uiSubscribe = this.store.select('ui').subscribe(ui => {\n      this.loading = ui.isLoading\n    });\n\n    this.registerForm = this.formBuilder.group({\n      username: ['', [Validators.required, Validators.min(4)]],\n      email:    ['', [Validators.required, Validators.email]],\n      password: ['', [Validators.required, Validators.min(6)]],\n    })\n  }\n\n  ngOnDestroy(): void {\n    this.uiSubscribe.unsubscribe();\n  }\n\n\n  setUser(event: Event) {\n\n    event.preventDefault();\n\n    if (this.registerForm.invalid) return;\n\n    this.store.dispatch(ui.isLoading());\n\n    const { username, email, password } = this.registerForm.value;\n\n    if (this.registerForm.invalid) return;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./register.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "authService",
+                        "type": "AuthService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "store",
+                        "type": "Store<AppState>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "formBuilder",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "authService",
+                        "type": "AuthService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "store",
+                        "type": "Store<AppState>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "formBuilder",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "implements": [
+                "OnDestroy"
+            ],
+            "templateData": "<div class=\"container w-50 min-vh-100 d-flex justify-content-center align-items-center mt-3\">\n    <div class=\"col w-100 border border-light rounded shadow-lg p-5\">\n        <h1>REGISTER</h1>\n        <form class=\"mb-5\" [formGroup]=\"registerForm\" (submit)=\"setUser($event)\">\n            <div class=\"mb-3\">\n                <label for=\"\" class=\"form-label\">Username</label>\n                <input type=\"text\" class=\"form-control\" formControlName=\"username\" name=\"\" id=\"\" aria-describedby=\"helpId\"\n                    placeholder=\"\">\n                <small id=\"helpId\" class=\"form-text text-muted\">*Help text</small>\n            </div>\n            <div class=\"mb-3\">\n                <label for=\"\" class=\"form-label\">Email</label>\n                <input type=\"email\" class=\"form-control\" formControlName=\"email\" name=\"\" id=\"\" aria-describedby=\"helpId\"\n                    placeholder=\"\">\n                <small id=\"helpId\" class=\"form-text text-muted\">*Help text</small>\n            </div>\n            <div class=\"mb-3\">\n                <label for=\"\" class=\"form-label\">Password</label>\n                <input type=\"password\" class=\"form-control\" formControlName=\"password\" name=\"\" id=\"\"\n                    aria-describedby=\"helpId\" placeholder=\"\">\n                <small id=\"helpId\" class=\"form-text text-muted\">*Help text</small>\n            </div>\n            <button [disabled]=\"registerForm.invalid\" type=\"submit\" class=\"w-100 btn btn-primary\">\n                <span *ngIf=\"loading\" class=\"fa-solid fa-sync \n             fa-spin fa-xs text-white me-2\">\n                </span>\n                <span *ngIf=\"!loading\">Create account</span>\n                <span *ngIf=\"loading\">Loading </span>\n            </button>\n        </form>\n        <a routerLink=\"/\">¿Ya tienes cuenta? <span class=\"text-underline\">Iniciar sesion</span></a>\n    </div>\n</div>"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AlertModule",
+            "id": "module-AlertModule-ba5ef133a76d19f1e2700c31f02e9ea9d7627f93c036021acd0877100326583efd90fec9d0c2b8a95133d47e6e2767894f157b56d03031b3295038882ac4b098",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/components/alert/alert.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n  ]\n})\nexport class AlertModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AppModule",
+            "id": "module-AppModule-76f4d30c84ae2f1da8e989b94682803fa71b4ccea8b24a456846d749e0b3470db05faedb957b35a9e27adf0360ad3a5f0871a91320eb685a05c561500184d84a",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\n\n\n// ngrx\nimport { StoreModule } from '@ngrx/store';\nimport { StoreDevtoolsModule } from '@ngrx/store-devtools';\n\n// Reactive Forms\nimport { ReactiveFormsModule } from '@angular/forms';\n\n// Swal\n\nimport {  AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { LoginComponent } from './layouts/login/login.component';\nimport { RegisterComponent } from './layouts/register/register.component';\nimport { DashboardComponent } from './layouts/auth/dashboard/dashboard.component'; \nimport { appReducers } from './app.reducer';\nimport { ListDropdownComponent } from './components/list-dropdown/list-dropdown.component';\nimport { EmployeesIndexComponent } from './pages/employees/employees.index/employees.index.component';\nimport { EmployeesEditComponent } from './pages/employees/employees.edit/employees.edit.component';\nimport { EmployeesDeleteComponent } from './pages/employees/employees.delete/employees.delete.component';\nimport { FilmsIndexComponent } from './pages/films/films.index/films.index.component';\nimport { FilmsEditComponent } from './pages/films/films.edit/films.edit.component';\nimport { FilmsDeleteComponent } from './pages/films/films.delete/films.delete.component';\nimport { DashboardPageComponent } from './pages/dashboard/dashboard.page.component';\nimport { HttpClientModule } from '@angular/common/http';\nimport { AlertComponent } from './components/alert/alert.component';\n\n\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    LoginComponent,\n    RegisterComponent,\n    DashboardComponent,\n    ListDropdownComponent,\n    EmployeesIndexComponent,\n    EmployeesEditComponent,\n    EmployeesDeleteComponent,\n    FilmsIndexComponent,\n    FilmsEditComponent,\n    FilmsDeleteComponent,\n    DashboardPageComponent,\n    AlertComponent,\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule,\n    ReactiveFormsModule,\n   \n    HttpClientModule,\n    StoreModule.forRoot(\n      appReducers\n    ),\n    StoreDevtoolsModule.instrument({\n      maxAge: 25,\n      logOnly: false\n    })\n  ],\n  providers: [\n  ],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AlertComponent"
+                        },
+                        {
+                            "name": "AppComponent"
+                        },
+                        {
+                            "name": "DashboardComponent"
+                        },
+                        {
+                            "name": "DashboardPageComponent"
+                        },
+                        {
+                            "name": "EmployeesDeleteComponent"
+                        },
+                        {
+                            "name": "EmployeesEditComponent"
+                        },
+                        {
+                            "name": "EmployeesIndexComponent"
+                        },
+                        {
+                            "name": "FilmsDeleteComponent"
+                        },
+                        {
+                            "name": "FilmsEditComponent"
+                        },
+                        {
+                            "name": "FilmsIndexComponent"
+                        },
+                        {
+                            "name": "ListDropdownComponent"
+                        },
+                        {
+                            "name": "LoginComponent"
+                        },
+                        {
+                            "name": "RegisterComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AppRoutingModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AppRoutingModule",
+            "id": "module-AppRoutingModule-5cd7a38f7433ad45b8fd570f7c5ff78c6ae48b36a967aa2f0cf1eeae1bab9a58719b405bda5d022a318265956a3cf72a691217c45e7de43baa52a8ed1a2b2663",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app-routing.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { RouterModule, Routes } from '@angular/router';\r\nimport { RegisterComponent } from './layouts/register/register.component';\r\nimport { LoginComponent } from './layouts/login/login.component';\r\nimport { EmployeesIndexComponent } from './pages/employees/employees.index/employees.index.component';\r\nimport { EmployeesEditComponent } from './pages/employees/employees.edit/employees.edit.component';\r\nimport { EmployeesDeleteComponent } from './pages/employees/employees.delete/employees.delete.component';\r\nimport { DashboardPageComponent } from './pages/dashboard/dashboard.page.component';\r\n\r\nconst appRoutes: Routes = [\r\n  { path: '', component: LoginComponent, pathMatch: 'full' },\r\n  { path: 'register', component: RegisterComponent, pathMatch: 'full' },\r\n  { \r\n    path: 'dashboard', \r\n    component: DashboardPageComponent, \r\n    pathMatch: 'full',\r\n    // canActivate: [ authGuard ]\r\n  },\r\n  {\r\n    path: 'employees',\r\n    component: EmployeesIndexComponent,\r\n    pathMatch: 'full',\r\n    // canActivate: [ authGuard ]\r\n  },\r\n  {\r\n    path: 'employees/edit',\r\n    component: EmployeesEditComponent,\r\n    pathMatch: 'full',\r\n    // canActivate: [ authGuard ]\r\n  },\r\n  {\r\n    path: 'employees/delete',\r\n    component: EmployeesDeleteComponent,\r\n    pathMatch: 'full',\r\n    // canActivate: [ authGuard ]\r\n  }\r\n];\r\n\r\n@NgModule({\r\n  imports: [RouterModule.forRoot(appRoutes)],\r\n  exports: [RouterModule]\r\n})\r\nexport class AppRoutingModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AuthModule",
+            "id": "module-AuthModule-199563198d665f4eb7ee60a11ca25e8039f8757d7bc021a82672c8ca0c51b6cdd0cc774ee92ffa388cf6890969490dd07d4bcbd0a87bee19b24dc209ba4fd27a",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/shared/services/auth.module.ts",
+            "methods": [],
+            "sourceCode": "\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HttpClientModule } from '@angular/common/http';\nimport { AuthService } from './auth.service'; // Asegúrate de importar tu servicio\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    HttpClientModule\n  ],\n  providers: [\n    AuthService // Agrega tu servicio al array de providers\n  ],\n})\nexport class AuthModule { }",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": [
+                        {
+                            "name": "AuthService"
+                        }
+                    ]
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "_uiReducer",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/ui.reducer.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createReducer(initializeApp,\n    on(actions.isLoading,   (state => ({...state, isLoading: true}))),\n    on(actions.stopLoading, (state => ({...state, isLoading: false})))\n)"
+            },
+            {
+                "name": "appReducers",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.reducer.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ActionReducerMap<AppState>",
+                "defaultValue": "{\n    ui: ui.uiReducer,\n    auth: auth._authReducer\n}"
+            },
+            {
+                "name": "authReducer",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/auth/auth.reducer.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createReducer(initializeState,\n    on(actions.setUser, (state, { user }) => ({ ...state, user })),\n    on(actions.unSetUser, state => ({ ...state, user: null })),\n)"
+            },
+            {
+                "name": "getCookie",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/utils/cookies.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(cookie: string): string => {\n    \n    const regex = /token=([A-Za-z0-9_.-]+)/;\n    const match = cookie.match(regex);\n    \n    if(match && match[1]) {\n        return match[1];\n    }\n\n    return '';\n}"
+            },
+            {
+                "name": "initializeApp",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/ui.reducer.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "State",
+                "defaultValue": "{\n    isLoading: false\n}"
+            },
+            {
+                "name": "initializeState",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/auth/auth.reducer.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "State",
+                "defaultValue": "{\n    user: null\n}"
+            },
+            {
+                "name": "isLoading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/ui.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\n    '[UI Component] isLoading'\n)"
+            },
+            {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "LoginAuth",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/auth.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "({}) => {\n\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Button>",
+                "defaultValue": "{\n  title: 'Example/Button',\n  component: Button,\n  tags: ['autodocs'],\n  render: (args: Button) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n}"
+            },
+            {
+                "name": "preview",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": ".storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Preview",
+                "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "setUser",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/auth/auth.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\n    '[Auth] setUser',\n    props<{ user: UserModel}>()\n)"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "stopLoading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/ui.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\n    '[UI Component] stopLoading'\n)"
+            },
+            {
+                "name": "unSetUser",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/auth/auth.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\n    '[Auth] unSetUser'\n)"
+            }
+        ],
+        "functions": [
+            {
+                "name": "_authReducer",
+                "file": "src/app/auth/auth.reducer.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "state",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "action",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "state",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "action",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "uiReducer",
+                "file": "src/app/shared/ui.reducer.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "state",
+                        "type": "any",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "action",
+                        "type": "any",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "state",
+                        "type": "any",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "action",
+                        "type": "any",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
+        "typealiases": [
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<Button>",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/app/shared/ui.reducer.ts": [
+                {
+                    "name": "_uiReducer",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/ui.reducer.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createReducer(initializeApp,\n    on(actions.isLoading,   (state => ({...state, isLoading: true}))),\n    on(actions.stopLoading, (state => ({...state, isLoading: false})))\n)"
+                },
+                {
+                    "name": "initializeApp",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/ui.reducer.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "State",
+                    "defaultValue": "{\n    isLoading: false\n}"
+                }
+            ],
+            "src/app/app.reducer.ts": [
+                {
+                    "name": "appReducers",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.reducer.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ActionReducerMap<AppState>",
+                    "defaultValue": "{\n    ui: ui.uiReducer,\n    auth: auth._authReducer\n}"
+                }
+            ],
+            "src/app/auth/auth.reducer.ts": [
+                {
+                    "name": "authReducer",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/auth/auth.reducer.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createReducer(initializeState,\n    on(actions.setUser, (state, { user }) => ({ ...state, user })),\n    on(actions.unSetUser, state => ({ ...state, user: null })),\n)"
+                },
+                {
+                    "name": "initializeState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/auth/auth.reducer.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "State",
+                    "defaultValue": "{\n    user: null\n}"
+                }
+            ],
+            "src/app/utils/cookies.ts": [
+                {
+                    "name": "getCookie",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/utils/cookies.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(cookie: string): string => {\n    \n    const regex = /token=([A-Za-z0-9_.-]+)/;\n    const match = cookie.match(regex);\n    \n    if(match && match[1]) {\n        return match[1];\n    }\n\n    return '';\n}"
+                }
+            ],
+            "src/app/shared/ui.actions.ts": [
+                {
+                    "name": "isLoading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/ui.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\n    '[UI Component] isLoading'\n)"
+                },
+                {
+                    "name": "stopLoading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/ui.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\n    '[UI Component] stopLoading'\n)"
+                }
+            ],
+            "src/stories/Button.stories.ts": [
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Button>",
+                    "defaultValue": "{\n  title: 'Example/Button',\n  component: Button,\n  tags: ['autodocs'],\n  render: (args: Button) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+                }
+            ],
+            "src/app/shared/auth.ts": [
+                {
+                    "name": "LoginAuth",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/auth.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "({}) => {\n\n}"
+                }
+            ],
+            ".storybook/preview.ts": [
+                {
+                    "name": "preview",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": ".storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Preview",
+                    "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                }
+            ],
+            "src/app/auth/auth.actions.ts": [
+                {
+                    "name": "setUser",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/auth/auth.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\n    '[Auth] setUser',\n    props<{ user: UserModel}>()\n)"
+                },
+                {
+                    "name": "unSetUser",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/auth/auth.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\n    '[Auth] unSetUser'\n)"
+                }
+            ]
+        },
+        "groupedFunctions": {
+            "src/app/auth/auth.reducer.ts": [
+                {
+                    "name": "_authReducer",
+                    "file": "src/app/auth/auth.reducer.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "state",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "action",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "state",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "action",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "src/app/shared/ui.reducer.ts": [
+                {
+                    "name": "uiReducer",
+                    "file": "src/app/shared/ui.reducer.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "state",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "action",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "state",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "action",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "src/stories/Button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Button>",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ]
+        }
+    },
+    "routes": {
+        "name": "<root>",
+        "kind": "module",
+        "className": "AppModule",
+        "children": [
+            {
+                "name": "appRoutes",
+                "filename": "src/app/app-routing.module.ts",
+                "module": "AppRoutingModule",
+                "children": [
+                    {
+                        "path": "",
+                        "component": "LoginComponent",
+                        "pathMatch": "full"
+                    },
+                    {
+                        "path": "register",
+                        "component": "RegisterComponent",
+                        "pathMatch": "full"
+                    },
+                    {
+                        "path": "dashboard",
+                        "component": "DashboardPageComponent",
+                        "pathMatch": "full"
+                    },
+                    {
+                        "path": "employees",
+                        "component": "EmployeesIndexComponent",
+                        "pathMatch": "full"
+                    },
+                    {
+                        "path": "employees/edit",
+                        "component": "EmployeesEditComponent",
+                        "pathMatch": "full"
+                    },
+                    {
+                        "path": "employees/delete",
+                        "component": "EmployeesDeleteComponent",
+                        "pathMatch": "full"
+                    }
+                ],
+                "kind": "module"
+            }
+        ]
+    },
+    "coverage": {
+        "count": 1,
+        "status": "low",
+        "files": [
+            {
+                "filePath": ".storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.reducer.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "AppState",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.reducer.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "appReducers",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/auth/auth.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "setUser",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/auth/auth.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "unSetUser",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/auth/auth.reducer.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "State",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/auth/auth.reducer.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "_authReducer",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/auth/auth.reducer.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "authReducer",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/auth/auth.reducer.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "initializeState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/alert/alert.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AlertComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/list-dropdown/list-dropdown.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ListDropdownComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/list-dropdown/list-dropdown.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "ListItemsSubmenu",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layouts/auth/dashboard/dashboard.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DashboardComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layouts/login/login.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LoginComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layouts/register/register.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RegisterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/models/user/user.model.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "UserModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/dashboard/dashboard.page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DashboardPageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/employees/employees.delete/employees.delete.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "EmployeesDeleteComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/employees/employees.edit/employees.edit.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "EmployeesEditComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/employees/employees.index/employees.index.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "EmployeesIndexComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/films/films.delete/films.delete.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FilmsDeleteComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/films/films.edit/films.edit.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FilmsEditComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/films/films.index/films.index.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FilmsIndexComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/auth.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoginAuth",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/interface/login.request.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "LoginRequestInterface",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/services/auth.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "AuthService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/services/auth.service.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "TaskWorkInterface",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/services/auth.service.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "UsersCollection",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "isLoading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "stopLoading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui.reducer.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "State",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui.reducer.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "uiReducer",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui.reducer.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "_uiReducer",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui.reducer.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "initializeApp",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/cookies.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "getCookie",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 83,
+                "coverageCount": "5/6",
+                "status": "very-good"
+            }
+        ]
+    }
+}

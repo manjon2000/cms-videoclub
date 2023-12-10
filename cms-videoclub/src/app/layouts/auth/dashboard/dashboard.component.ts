@@ -41,18 +41,8 @@ export class DashboardComponent implements OnInit {
       console.log(this.expandMenu)
     }
   
-    async submitTaskWork(event: Event) {
-      event.preventDefault();
-
-      if(this.formTaskWork.invalid) return;
-      
-      const res = await this.auth.createDocumentToUser(this.formTaskWork.value);
-
-      console.log(res);
-    }
 
   handlelogOut() {
-    this.auth.logOut();
     this.store.dispatch(auth.unSetUser());
     this.router.navigate(['/'])
   }

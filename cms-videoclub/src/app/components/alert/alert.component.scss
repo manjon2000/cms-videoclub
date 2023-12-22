@@ -1,0 +1,61 @@
+.ui-alert {
+  --alert-bg: #099276;
+  --alert-color-text: #f7f7f7;
+  --alert-color-icon: #032b26;
+  --alert-color-close: #f7f7f7;
+
+  max-width: 100%;
+  min-height: 48px;
+  width: max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 8px;
+  background: var(--alert-bg);
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.05),
+    0px 9px 9px 0px rgba(0, 0, 0, 0.04), 0px 21px 13px 0px rgba(0, 0, 0, 0.03),
+    0px 37px 15px 0px rgba(0, 0, 0, 0.01), 0px 58px 16px 0px rgba(0, 0, 0, 0);
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  &__icon {
+    font-size: 1rem;
+    align-self: flex-start;
+    color: var(--alert-color-icon);
+  }
+  &__text {
+    padding-right: 1em;
+    color: var(--alert-color-text);
+    font-weight: 400;
+  }
+  &__close {
+    color: var(--alert-color-close);
+    font-size: 0.7rem;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+  }
+
+  &--danger {
+    --alert-bg: #f87476;
+    --alert-color-icon: #4b0611;
+  }
+  &--warning {
+    --alert-bg: #f5c26b;
+    --alert-color-icon: #363636;
+    --alert-color-text: #363636;
+    --alert-color-close: #363636;
+  }
+  &--info {
+    --alert-bg: #7b7b7b;
+    --alert-color-icon: #363636;
+  }
+}

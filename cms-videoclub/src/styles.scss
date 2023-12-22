@@ -1,5 +1,4 @@
-@import '../node_modules/material-icons/iconfont/material-icons.scss';
-
+@import "../node_modules/primeicons/primeicons.css";
 *,
 *::before,
 *::after{
@@ -74,7 +73,7 @@
   body {
     min-height  : 100vh;
     font-size   : 100%;
-    font-family : 'Inter', sans-serif;
+    font-family: 'Exo', sans-serif;
     hyphens: auto;
     font-smooth: always;
     -webkit-font-smoothing: antialiased;

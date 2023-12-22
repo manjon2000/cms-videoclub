@@ -1,6 +1,10 @@
-<div class="ui-alert">
+<div class="ui-alert"
+[class.ui-alert--danger]="state  === 'danger'"
+[class.ui-alert--warning]="state === 'warning'"
+[class.ui-alert--info]="state    === 'info'">
     <div class="ui-alert__wrapper">
-        <div class="ui-alert__icon"></div>
-        <p class="ui-alert__text">Lorem ipsum dolor sit amet.</p>
-    </div>
+        <span class="ui-alert__icon pi pi-info-circle"></span>
+        <p class="ui-alert__text">{{label}}<p>
+        </div>
+        <span class="ui-alert__close pi pi-times" (click)="fnCloseAlertEmmiter"></span>
 </div>

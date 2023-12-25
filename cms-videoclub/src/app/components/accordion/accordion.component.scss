@@ -1,0 +1,99 @@
+.ui-accordion {
+    --ui-accordion-border-width: 0;
+    
+    width: 100%;
+    height: max-content;
+    box-shadow: 0px 5px 14px 0px rgba(0, 0, 0, 0.05);
+
+    &__head {
+        min-height: 48px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #FFF;
+        border-radius: 8px;
+        cursor: pointer;
+        padding: 1rem .5rem;
+        transition: ease-in-out .1s;
+
+        @media (min-width: 768px) {
+            padding: 1rem 1.255rem;
+        }
+
+        &::before {
+            content: '';
+            width: var(--ui-accordion-border-width, 0);
+            height: 1px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            border-radius: 50px;
+            background-color: #F3F4F7;
+            transition: ease-in-out .8s;
+        }
+
+        &--expand {
+            border-radius: 8px 8px 0px 0px;
+        }
+    }
+
+    &__title {
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 12px;
+        color: #52565E;
+    }
+
+    &__icon {
+        color: #52565E;
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__chevron {
+        color: #52565E;
+        transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) .4s;
+
+        &--rotate {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__body {
+        clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);
+        background: #FFF;
+        border-radius: 0px 0px 8px 8px;
+        height: 0;
+
+        &--expand {
+            height: auto;
+            padding: 1rem .5rem;
+            border-radius: 0px 0px 8px 8px;
+            animation: expand .4s ease-in-out .1s forwards;
+
+            @media (min-width: 768px) {
+                padding: 1rem 1.255rem;
+            }
+        }
+    }
+
+    &--expand {
+        --ui-accordion-border-width: 100%;
+    }
+}
+
+@keyframes expand {
+    from {
+       clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0); 
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+    }
+}

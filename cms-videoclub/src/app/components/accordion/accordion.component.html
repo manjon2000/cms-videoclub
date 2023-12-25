@@ -1,0 +1,12 @@
+<div class="ui-accordion" [class.ui-accordion--expand]="isExpand">
+    <div class="ui-accordion__head" (click)="fnExpandPanel()" [class.ui-accordion__head--expand]="isExpand">
+        <div class="ui-accordion__wrapper">
+            <span class="ui-accordion__icon pi pi-{{icon}}"></span>
+            <h3 class="ui-accordion__title">{{title}}</h3>
+        </div>
+        <span class="ui-accordion__chevron pi pi-angle-down" [class.ui-accordion__chevron--rotate]="isExpand"></span>
+    </div>
+    <div class="ui-accordion__body" [class.ui-accordion__body--expand]="isExpand">
+        <ng-content></ng-content>
+    </div>
+</div>

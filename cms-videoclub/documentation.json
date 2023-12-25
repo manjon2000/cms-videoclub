@@ -455,7 +455,7 @@
     "components": [
         {
             "name": "AlertComponent",
-            "id": "component-AlertComponent-0debb7d94d7c15955d4d93572ecb1f4746abca59ba738fb5ea9cb1574aff86f220749f5312ca85f5718d1a932e01c44c61ab2467025f4418bb5760e959c36d8d",
+            "id": "component-AlertComponent-c708382db4fe742ae8941c9720f89f65a3484b0598fc7898b5dea9123a22b2d3dee612ecc736ee49535eee699b45f0c07f5d9793dbaabf0870a5ee02a72ce927",
             "file": "src/app/components/alert/alert.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -483,7 +483,6 @@
                 },
                 {
                     "name": "label",
-                    "defaultValue": "'User created successfully'",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 11,
@@ -532,7 +531,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, EventEmitter, Output } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'ui-alert',\r\n  templateUrl: './alert.component.html',\r\n  styleUrls: ['./alert.component.scss']\r\n})\r\nexport class AlertComponent {\r\n\r\n  @Input() state: 'success' | 'danger' | 'warning' | 'info' = 'success';\r\n  @Input() label: string = 'User created successfully'\r\n  @Input() icon!: string;\r\n  @Output() closeAlertEmmiter?: EventEmitter<boolean> = new EventEmitter();\r\n  \r\n\r\n  fnCloseAlertEmmiter() {\r\n    this.closeAlertEmmiter?.emit(true);\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, Input, EventEmitter, Output } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'ui-alert',\r\n  templateUrl: './alert.component.html',\r\n  styleUrls: ['./alert.component.scss']\r\n})\r\nexport class AlertComponent {\r\n\r\n  @Input() state: 'success' | 'danger' | 'warning' | 'info' = 'success';\r\n  @Input() label!: string;\r\n  @Input() icon!: string;\r\n  @Output() closeAlertEmmiter?: EventEmitter<boolean> = new EventEmitter();\r\n  \r\n\r\n  fnCloseAlertEmmiter() {\r\n    this.closeAlertEmmiter?.emit(true);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1115,6 +1114,241 @@
             "templateData": "<p>films.index works!</p>\n"
         },
         {
+            "name": "InputComponent",
+            "id": "component-InputComponent-c0b2a9c91b0c0f00f37f584fee5af784ac021a219b21c4d33d139f6e501a956d82fdc95e0af96f3957b4301898ab7ec67eefcce072ac5ebbd34cb95298da0540",
+            "file": "src/app/components/input/input.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ui-input",
+            "styleUrls": [
+                "./input.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./input.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "isDisabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isError",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isFocus",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isPassword",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isReadOnly",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "maxValue",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "minValue",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'text'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "\"text\" | \"password\" | \"email\" | \"number\"",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string | number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "input",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ElementRef",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'input'"
+                        }
+                    ],
+                    "modifierKind": [
+                        170
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "fnBlur",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 35,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "fnDecrement",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 52,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "fnFocus",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 29,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "fnIncrement",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 46,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "toggleType",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, ElementRef, ViewChild, OnChanges, SimpleChanges, AfterViewInit} from '@angular/core';\n\n\n\n@Component({\n  selector: 'ui-input',\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss']\n})\nexport class InputComponent implements AfterViewInit, OnChanges {\n\n\n  @ViewChild('input') input!: ElementRef; \n\n  @Input() type:      'text' | 'password' | 'email' | 'number' = 'text';\n  @Input() value?:      string | number;\n  @Input() isFocus?:    boolean = false;\n  @Input() isError?:    boolean = false;\n  @Input() isDisabled?: boolean = false;\n  @Input() isReadOnly?: boolean = false;\n  @Input() isPassword?: boolean = false;\n  @Input() minValue!: number;\n  @Input() maxValue!: number;\n\n  ngAfterViewInit(): void {}\n\n  ngOnChanges(changes: SimpleChanges): void {}\n\n  fnFocus(): void {\n    if(!this.isReadOnly || !this.isDisabled) {\n      this.isFocus = !this.isFocus;\n    }\n  }\n\n  fnBlur(): void {\n    this.isFocus = false;\n  }\n  toggleType() {\n    if(this.type === 'password') {\n      this.type = 'text';\n    }else {\n      this.type = 'password';\n    }\n  }\n\n  fnIncrement() {\n    if(this.value && Number(this.value) <= this.maxValue) {\n      this.value = Number(this.value) + 1;\n    }\n  }\n\n  fnDecrement() {\n    if(this.value) {\n      this.value = Number(this.value) - 1;\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".ui-input {\r\n\r\n    --ui-input-border-color: #788DDC; \r\n    --ui-input-border-width: 1px; \r\n    --ui-input-icon-color: #3A4275; \r\n    --ui-input-grid-organization: 16px auto 16px;\r\n\r\n    width: 100%;\r\n    min-height: 48px;\r\n    display: grid;\r\n    grid-template-columns: var(--ui-input-grid-organization);\r\n    align-items: center;\r\n    gap: 4px;\r\n    padding: 8px;\r\n    border-radius: 4px;\r\n    border: var(--ui-input-border-width) solid var(--ui-input-border-color);\r\n\r\n    &__input {\r\n        width: 100%;\r\n        justify-self: flex-start;\r\n        appearance: textfield;\r\n        outline: none;\r\n        color: #363636;\r\n\r\n        &,\r\n        &::placeholder {\r\n            font-family: 'Exo', sans-serif;\r\n            color: #363636;\r\n            font-size: 16px;\r\n            font-weight: 500;\r\n            line-height: 120%;\r\n        }\r\n\r\n        &:disabled {\r\n            color: #EAEEF4;\r\n            &::placeholder {\r\n                color: #EAEEF4;\r\n            }\r\n        }\r\n\r\n        &:read-only {\r\n            color: #363636;\r\n        }\r\n    }\r\n\r\n    &__icon {\r\n        fill: var(--ui-input-icon-color);\r\n        cursor: pointer;\r\n        & svg {\r\n            fill: var(--ui-input-icon-color);\r\n        }\r\n    }\r\n\r\n    &__numeric {\r\n        display: grid;\r\n        grid-template-columns: repeat(2, 16px);\r\n        align-items: center;\r\n        gap: 18px;\r\n    }\r\n    \r\n\r\n\r\n    &--number {\r\n        --ui-input-grid-organization: 16px auto max-content;\r\n    }\r\n\r\n    &--focus {\r\n        --ui-input-border-width: 2px;\r\n    }\r\n\r\n    &--error {\r\n        --ui-input-border-color: #BB1529;\r\n        --ui-input-icon-color: #BB1529;\r\n    }\r\n\r\n    &--disabled, \r\n    &--readonly {\r\n        --ui-input-border-color: #E5EEFA;\r\n        --ui-input-border-width: 1px; \r\n        --ui-input-icon-color: #E5EEFA;\r\n    }\r\n}",
+                    "styleUrl": "./input.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "implements": [
+                "AfterViewInit",
+                "OnChanges"
+            ],
+            "templateData": "<div class=\"ui-input\" [class.ui-input--number]=\"type === 'number'\" [class.ui-input--focus]=\"isFocus\"\n    [class.ui-input--error]=\"isError\" [class.ui-input--disabled]=\"isDisabled\" [class.ui-input--readonly]=\"isReadOnly\">\n    <div class=\"ui-input__icon ui-input__icon--primary\">\n        <svg width=\"16\" height=\"16\" viewBox=\"0 0 6 8\">\n            <path\n                d=\"M4.875 3.75C5.49632 3.75 6 4.25368 6 4.875C6 5.71206 5.65577 6.3827 5.09089 6.8361C4.53494 7.28235 3.78981 7.5 3 7.5C2.21019 7.5 1.46507 7.28235 0.909113 6.8361C0.344228 6.3827 0 5.71206 0 4.875C0 4.29025 0.446157 3.80967 1.01664 3.75515L1.12498 3.75H4.875ZM3 0C3.82843 0 4.5 0.671572 4.5 1.5C4.5 2.32843 3.82843 3 3 3C2.17157 3 1.5 2.32843 1.5 1.5C1.5 0.671572 2.17157 0 3 0Z\" />\n        </svg>\n    </div>\n    <input #input class=\"ui-input__input\" [type]=\"type\" [value]=\"value !== undefined ? value : ''\" placeholder=\"Placeholder\" name=\"demo\" id=\"demo\" [min]=\"minValue\" [max]=\"maxValue\"\n        (focus)=\"fnFocus()\" (blur)=\"fnBlur()\" [disabled]=\"isDisabled\" [readOnly]=\"isReadOnly\" />\n\n    <ng-container *ngIf=\"isPassword\">\n        <svg class=\"ui-input__icon ui-input__icon--password\" (click)=\"toggleType()\" width=\"16\" height=\"16\"\n            viewBox=\"0 0 6 7\">\n            <path d=\"M3.04631 3.00079L4.31171 4.26618C4.28782 3.57812 3.73436 3.02465 3.04631 3.00079Z\" />\n            <path\n                d=\"M0.320082 0.80492C0.24686 0.731693 0.128142 0.731693 0.0549197 0.80492C-0.0183066 0.878142 -0.0183066 0.99686 0.0549197 1.07008L1.36699 2.38215C0.738916 2.80942 0.271276 3.47769 0.105065 4.27421C0.0839146 4.37558 0.148943 4.47491 0.250313 4.49606C0.351683 4.51721 0.451006 4.45219 0.47216 4.35079C0.623588 3.62512 1.05888 3.02359 1.63768 2.65283L2.23251 3.24767C1.90236 3.48604 1.6875 3.87416 1.6875 4.3125C1.6875 5.03738 2.27513 5.625 3 5.625C3.43834 5.625 3.82646 5.41013 4.06485 5.07998L5.6799 6.6951C5.75314 6.7683 5.87186 6.7683 5.9451 6.6951C6.0183 6.62186 6.0183 6.50314 5.9451 6.4299L0.320082 0.80492ZM3.79478 4.80994C3.62899 5.07428 3.33503 5.25 3 5.25C2.48223 5.25 2.0625 4.83026 2.0625 4.3125C2.0625 3.97748 2.23824 3.68349 2.50256 3.51771L3.79478 4.80994Z\" />\n            <path\n                d=\"M3 2.25C2.78631 2.25 2.57681 2.27757 2.37532 2.32982L2.07417 2.02867C2.36756 1.92874 2.67932 1.875 3 1.875C4.38502 1.875 5.60344 2.87742 5.89496 4.27421C5.91611 4.37557 5.85109 4.47487 5.74969 4.49606C5.64832 4.51721 5.54902 4.45219 5.52784 4.35079C5.27152 3.12258 4.20214 2.25 3 2.25Z\" />\n        </svg>\n    </ng-container>\n\n    <ng-container *ngIf=\"type === 'number'\">\n        <div class=\"ui-input__numeric\">\n            <svg class=\"ui-input__numeric-minus ui-input__icon\"  width=\"86\" height=\"6\" viewBox=\"0 0 86 6\" (click)=\"fnDecrement()\">\n                <path d=\"M0 2.6721C0 1.19635 1.19635 0 2.6721 0H82.8352C84.3108 0 85.5073 1.19635 85.5073 2.6721C85.5073 4.14785 84.3108 5.34421 82.8352 5.34421H2.6721C1.19635 5.34421 0 4.14785 0 2.6721Z\" />\n              </svg>\n            <svg class=\"ui-input__numeric-plus ui-input__icon\" width=\"16\" height=\"16\" viewBox=\"0 0 86 86\" (click)=\"fnIncrement()\">\n                <path\n                    d=\"M42.2244 0.150449L43.185 0.0643463C45.8086 0.0643463 47.9906 1.95486 48.4431 4.44793L48.5292 5.40855V37.4738H80.5945C83.218 37.4738 85.4001 39.3643 85.8526 41.8574L85.9387 42.818C85.9387 45.4416 84.0481 47.6236 81.5551 48.0761L80.5945 48.1622H48.5292V80.2275C48.5292 82.851 46.6387 85.0331 44.1456 85.4856L43.185 85.5717C40.5614 85.5717 38.3794 83.6812 37.9269 81.1881L37.8408 80.2275V48.1622H5.77554C3.15197 48.1622 0.969942 46.2717 0.517438 43.7786L0.431335 42.818C0.431335 40.1944 2.32185 38.0124 4.81491 37.5599L5.77554 37.4738H37.8408V5.40855C37.8408 2.78498 39.7313 0.602953 42.2244 0.150449Z\" />\n            </svg>\n        </div>\n    </ng-container>\n</div>"
+        },
+        {
             "name": "ListDropdownComponent",
             "id": "component-ListDropdownComponent-118d85a0af48298abfebefe5cc28a056e27e1b7e2aec4779882da28a54266880e64252057624c176d56d57879986a8123ea98d68f5d92a31465ef1a0c56209b4",
             "file": "src/app/components/list-dropdown/list-dropdown.component.ts",
@@ -1651,13 +1885,13 @@
         },
         {
             "name": "AppModule",
-            "id": "module-AppModule-a574266ec8766d27bfc74c3feadf8a4a309b62e6ddc6912429d98ce38c7e98d2133f4ad75e319e406fb1d14679a103edcb72f86834294ed2db7ddc286b7bb490",
+            "id": "module-AppModule-29ae05d3c3c9758c9322e7ac28074474faa7dfae1e5eeb9e7acfde8627f78fa9452db2ee3ebd63de439ccb927234756f3172ca3e4085ed4d38256dd28a645ebe",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\n\r\n\r\n// ngrx\r\nimport { StoreModule } from '@ngrx/store';\r\nimport { StoreDevtoolsModule } from '@ngrx/store-devtools';\r\n\r\n// Reactive Forms\r\nimport { ReactiveFormsModule } from '@angular/forms';\r\n\r\n// Swal\r\n\r\nimport {  AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { LoginComponent } from './layouts/login/login.component';\r\nimport { RegisterComponent } from './layouts/register/register.component';\r\nimport { DashboardComponent } from './layouts/auth/dashboard/dashboard.component'; \r\nimport { appReducers } from './app.reducer';\r\nimport { ListDropdownComponent } from './components/list-dropdown/list-dropdown.component';\r\nimport { EmployeesIndexComponent } from './pages/employees/employees.index/employees.index.component';\r\nimport { EmployeesEditComponent } from './pages/employees/employees.edit/employees.edit.component';\r\nimport { EmployeesDeleteComponent } from './pages/employees/employees.delete/employees.delete.component';\r\nimport { FilmsIndexComponent } from './pages/films/films.index/films.index.component';\r\nimport { FilmsEditComponent } from './pages/films/films.edit/films.edit.component';\r\nimport { FilmsDeleteComponent } from './pages/films/films.delete/films.delete.component';\r\nimport { DashboardPageComponent } from './pages/dashboard/dashboard.page.component';\r\nimport { HttpClientModule } from '@angular/common/http';\r\nimport { AlertComponent } from './components/alert/alert.component';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent,\r\n    LoginComponent,\r\n    RegisterComponent,\r\n    DashboardComponent,\r\n    ListDropdownComponent,\r\n    EmployeesIndexComponent,\r\n    EmployeesEditComponent,\r\n    EmployeesDeleteComponent,\r\n    FilmsIndexComponent,\r\n    FilmsEditComponent,\r\n    FilmsDeleteComponent,\r\n    DashboardPageComponent,\r\n    AlertComponent,\r\n  ],\r\n  imports: [\r\n    BrowserModule,\r\n    AppRoutingModule,\r\n    ReactiveFormsModule,\r\n   \r\n    HttpClientModule,\r\n    StoreModule.forRoot(\r\n      appReducers\r\n    ),\r\n    StoreDevtoolsModule.instrument({\r\n      maxAge: 25,\r\n      logOnly: false\r\n    })\r\n  ],\r\n  providers: [\r\n  ],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\n\r\n\r\n// ngrx\r\nimport { StoreModule } from '@ngrx/store';\r\nimport { StoreDevtoolsModule } from '@ngrx/store-devtools';\r\n\r\n// Reactive Forms\r\nimport { ReactiveFormsModule } from '@angular/forms';\r\n\r\n// Swal\r\n\r\nimport {  AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { LoginComponent } from './layouts/login/login.component';\r\nimport { RegisterComponent } from './layouts/register/register.component';\r\nimport { DashboardComponent } from './layouts/auth/dashboard/dashboard.component'; \r\nimport { appReducers } from './app.reducer';\r\nimport { ListDropdownComponent } from './components/list-dropdown/list-dropdown.component';\r\nimport { EmployeesIndexComponent } from './pages/employees/employees.index/employees.index.component';\r\nimport { EmployeesEditComponent } from './pages/employees/employees.edit/employees.edit.component';\r\nimport { EmployeesDeleteComponent } from './pages/employees/employees.delete/employees.delete.component';\r\nimport { FilmsIndexComponent } from './pages/films/films.index/films.index.component';\r\nimport { FilmsEditComponent } from './pages/films/films.edit/films.edit.component';\r\nimport { FilmsDeleteComponent } from './pages/films/films.delete/films.delete.component';\r\nimport { DashboardPageComponent } from './pages/dashboard/dashboard.page.component';\r\nimport { HttpClientModule } from '@angular/common/http';\r\nimport { AlertComponent } from './components/alert/alert.component';\nimport { InputComponent } from './components/input/input.component';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent,\r\n    LoginComponent,\r\n    RegisterComponent,\r\n    DashboardComponent,\r\n    ListDropdownComponent,\r\n    EmployeesIndexComponent,\r\n    EmployeesEditComponent,\r\n    EmployeesDeleteComponent,\r\n    FilmsIndexComponent,\r\n    FilmsEditComponent,\r\n    FilmsDeleteComponent,\r\n    DashboardPageComponent,\r\n    AlertComponent,\r\n    InputComponent,\r\n  ],\r\n  imports: [\r\n    BrowserModule,\r\n    AppRoutingModule,\r\n    ReactiveFormsModule,\r\n   \r\n    HttpClientModule,\r\n    StoreModule.forRoot(\r\n      appReducers\r\n    ),\r\n    StoreDevtoolsModule.instrument({\r\n      maxAge: 25,\r\n      logOnly: false\r\n    })\r\n  ],\r\n  providers: [\r\n  ],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -1695,6 +1929,9 @@
                         },
                         {
                             "name": "FilmsIndexComponent"
+                        },
+                        {
+                            "name": "InputComponent"
                         },
                         {
                             "name": "ListDropdownComponent"
@@ -1853,6 +2090,46 @@
                 "defaultValue": "{\r\n    render: (args) => ({\r\n        props: args,\r\n        template: template,\r\n    }),\r\n    name: 'Default'\r\n}"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/input/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Default'\r\n}"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/input/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args,\r\n            type: 'text',\r\n            isDisabled: true\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Disabled'\r\n}"
+            },
+            {
+                "name": "Error",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/input/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args,\r\n            type: 'text',\r\n            isError: true\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Error'\r\n}"
+            },
+            {
+                "name": "Focus",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/input/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args,\r\n            type: 'text',\r\n            isFocus: true\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Focus'\r\n}"
+            },
+            {
                 "name": "getCookie",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1910,7 +2187,37 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<AlertComponent>",
-                "defaultValue": "{\r\n    title: 'Components/Alert',\r\n    component: AlertComponent,\r\n    tags: ['autodocs'],\r\n    argTypes: {\r\n        label: {\r\n            description: 'Label',\r\n            defaultValue: 'User created successfully',\r\n            table: {\r\n                type: { summary: 'text' },\r\n                defaultValue: { summary: 'User created successfully' },\r\n            },\r\n            control: 'text'\r\n        },\r\n        state: {\r\n            description: 'Differents state to components',\r\n            control: 'select',\r\n            options: [\r\n                'success',\r\n                'danger',\r\n                'warning',\r\n                'info',\r\n            ],\r\n            defaultValue: 'success',\r\n            table: {\r\n                defaultValue: { summary: 'success' },\r\n            },\r\n        },\r\n        icon: {\r\n            description: 'Add icon',\r\n            defaultValue: 'check_circle',\r\n            table: {\r\n                type: { summary: 'text' },\r\n                defaultValue: { summary: 'info' },\r\n            },\r\n            control: 'text'\r\n        }\r\n    }\r\n}"
+                "defaultValue": "{\r\n    title: 'Components/Alert',\r\n    component: AlertComponent,\r\n    tags: ['autodocs'],\r\n    args: {\r\n        label: 'User created successfully'\r\n    },\r\n    argTypes: {\r\n        label: {\r\n            description: 'Label',\r\n            defaultValue: 'User created successfully',\r\n            table: {\r\n                type: { summary: 'text' },\r\n                defaultValue: { summary: 'User created successfully' },\r\n            },\r\n            control: 'text'\r\n        },\r\n        state: {\r\n            description: 'Differents state to components',\r\n            control: 'select',\r\n            options: [\r\n                'success',\r\n                'danger',\r\n                'warning',\r\n                'info',\r\n            ],\r\n            defaultValue: 'success',\r\n            table: {\r\n                defaultValue: { summary: 'success' },\r\n            },\r\n        },\r\n        icon: {\r\n            description: 'Add icon',\r\n            defaultValue: 'check_circle',\r\n            table: {\r\n                type: { summary: 'text' },\r\n                defaultValue: { summary: 'info' },\r\n            },\r\n            control: 'text'\r\n        }\r\n    }\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/input/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<InputComponent>",
+                "defaultValue": "{\r\n    title: 'Components/Forms/Input',\r\n    component: InputComponent,\r\n    args: {\r\n        type: 'text',\r\n        value: '',\r\n        isFocus: false,\r\n        isError: false,\r\n        isDisabled: false,\r\n        isReadOnly: false,\r\n        isPassword: false,\r\n        minValue: 0,\r\n        maxValue: 20\r\n    },\r\n    argTypes: {\r\n        type: {\r\n            options: ['text', 'password', 'email', 'number'],\r\n            control: { type: 'select' },\r\n            description: 'Type of input',\r\n            defaultValue: 'text',\r\n        },\r\n        value: {\r\n            defaultValue: '',\r\n            description: 'This argument accepts both strings and numbers.',\r\n        },\r\n        isFocus: {\r\n            description: 'Focusing',\r\n            defaultValue: false\r\n        },\r\n        isError: {\r\n            description: 'State error',\r\n            defaultValue: false\r\n        },\r\n        isDisabled: {\r\n            description: 'State disabled',\r\n            defaultValue: false\r\n        },\r\n        isReadOnly: {\r\n            description: 'State read-only',\r\n            defaultValue: false\r\n        },\r\n        isPassword: {\r\n            description: 'Use when type password',\r\n            defaultValue: false\r\n        },\r\n        minValue: {\r\n            defaultValue: 0,\r\n            control: {\r\n                type: 'number',\r\n            },\r\n            description: 'Min value'\r\n        },\r\n        maxValue: {\r\n            defaultValue: 20,\r\n            control: {\r\n                type: 'number',\r\n            },\r\n            description: 'Max value'\r\n        }\r\n    }\r\n}"
+            },
+            {
+                "name": "Number",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/input/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args,\r\n            type: 'number',\r\n            value: '0'\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Number'\r\n}"
+            },
+            {
+                "name": "Passoword",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/input/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args,\r\n            type: 'password',\r\n            isPassword: true\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Passoword'\r\n}"
             },
             {
                 "name": "preview",
@@ -1921,6 +2228,16 @@
                 "deprecationMessage": "",
                 "type": "Preview",
                 "defaultValue": "{\r\n  parameters: {\r\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "ReadOnly",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/input/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args,\r\n            type: 'text',\r\n            isReadOnly: true\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'ReadOnly'\r\n}"
             },
             {
                 "name": "setUser",
@@ -1951,6 +2268,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "`\r\n    <ui-alert [label]=\"label\" [state]=\"state\" [icon]=\"icon\" />\r\n`"
+            },
+            {
+                "name": "template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/input/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`\r\n    <ui-input\r\n        [type]=\"type\"\r\n        [value]=\"value\"\r\n        [isFocus]=\"isFocus\"\r\n        [isError]=\"isError\"\r\n        [isDisabled]=\"isDisabled\"\r\n        [isReadOnly]=\"isReadOnly\"\r\n        [isPassword]=\"isPassword\"\r\n        [minValue]=\"minValue\"\r\n        [maxValue]=\"maxValue\" />\r\n`"
             },
             {
                 "name": "unSetUser",
@@ -2058,6 +2385,17 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<InputComponent>",
+                "file": "src/stories/forms/input/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
             }
         ],
         "enumerations": [],
@@ -2137,7 +2475,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<AlertComponent>",
-                    "defaultValue": "{\r\n    title: 'Components/Alert',\r\n    component: AlertComponent,\r\n    tags: ['autodocs'],\r\n    argTypes: {\r\n        label: {\r\n            description: 'Label',\r\n            defaultValue: 'User created successfully',\r\n            table: {\r\n                type: { summary: 'text' },\r\n                defaultValue: { summary: 'User created successfully' },\r\n            },\r\n            control: 'text'\r\n        },\r\n        state: {\r\n            description: 'Differents state to components',\r\n            control: 'select',\r\n            options: [\r\n                'success',\r\n                'danger',\r\n                'warning',\r\n                'info',\r\n            ],\r\n            defaultValue: 'success',\r\n            table: {\r\n                defaultValue: { summary: 'success' },\r\n            },\r\n        },\r\n        icon: {\r\n            description: 'Add icon',\r\n            defaultValue: 'check_circle',\r\n            table: {\r\n                type: { summary: 'text' },\r\n                defaultValue: { summary: 'info' },\r\n            },\r\n            control: 'text'\r\n        }\r\n    }\r\n}"
+                    "defaultValue": "{\r\n    title: 'Components/Alert',\r\n    component: AlertComponent,\r\n    tags: ['autodocs'],\r\n    args: {\r\n        label: 'User created successfully'\r\n    },\r\n    argTypes: {\r\n        label: {\r\n            description: 'Label',\r\n            defaultValue: 'User created successfully',\r\n            table: {\r\n                type: { summary: 'text' },\r\n                defaultValue: { summary: 'User created successfully' },\r\n            },\r\n            control: 'text'\r\n        },\r\n        state: {\r\n            description: 'Differents state to components',\r\n            control: 'select',\r\n            options: [\r\n                'success',\r\n                'danger',\r\n                'warning',\r\n                'info',\r\n            ],\r\n            defaultValue: 'success',\r\n            table: {\r\n                defaultValue: { summary: 'success' },\r\n            },\r\n        },\r\n        icon: {\r\n            description: 'Add icon',\r\n            defaultValue: 'check_circle',\r\n            table: {\r\n                type: { summary: 'text' },\r\n                defaultValue: { summary: 'info' },\r\n            },\r\n            control: 'text'\r\n        }\r\n    }\r\n}"
                 },
                 {
                     "name": "template",
@@ -2148,6 +2486,98 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "`\r\n    <ui-alert [label]=\"label\" [state]=\"state\" [icon]=\"icon\" />\r\n`"
+                }
+            ],
+            "src/stories/forms/input/Input.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/input/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Default'\r\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/input/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args,\r\n            type: 'text',\r\n            isDisabled: true\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Disabled'\r\n}"
+                },
+                {
+                    "name": "Error",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/input/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args,\r\n            type: 'text',\r\n            isError: true\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Error'\r\n}"
+                },
+                {
+                    "name": "Focus",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/input/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args,\r\n            type: 'text',\r\n            isFocus: true\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Focus'\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/input/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<InputComponent>",
+                    "defaultValue": "{\r\n    title: 'Components/Forms/Input',\r\n    component: InputComponent,\r\n    args: {\r\n        type: 'text',\r\n        value: '',\r\n        isFocus: false,\r\n        isError: false,\r\n        isDisabled: false,\r\n        isReadOnly: false,\r\n        isPassword: false,\r\n        minValue: 0,\r\n        maxValue: 20\r\n    },\r\n    argTypes: {\r\n        type: {\r\n            options: ['text', 'password', 'email', 'number'],\r\n            control: { type: 'select' },\r\n            description: 'Type of input',\r\n            defaultValue: 'text',\r\n        },\r\n        value: {\r\n            defaultValue: '',\r\n            description: 'This argument accepts both strings and numbers.',\r\n        },\r\n        isFocus: {\r\n            description: 'Focusing',\r\n            defaultValue: false\r\n        },\r\n        isError: {\r\n            description: 'State error',\r\n            defaultValue: false\r\n        },\r\n        isDisabled: {\r\n            description: 'State disabled',\r\n            defaultValue: false\r\n        },\r\n        isReadOnly: {\r\n            description: 'State read-only',\r\n            defaultValue: false\r\n        },\r\n        isPassword: {\r\n            description: 'Use when type password',\r\n            defaultValue: false\r\n        },\r\n        minValue: {\r\n            defaultValue: 0,\r\n            control: {\r\n                type: 'number',\r\n            },\r\n            description: 'Min value'\r\n        },\r\n        maxValue: {\r\n            defaultValue: 20,\r\n            control: {\r\n                type: 'number',\r\n            },\r\n            description: 'Max value'\r\n        }\r\n    }\r\n}"
+                },
+                {
+                    "name": "Number",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/input/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args,\r\n            type: 'number',\r\n            value: '0'\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Number'\r\n}"
+                },
+                {
+                    "name": "Passoword",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/input/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args,\r\n            type: 'password',\r\n            isPassword: true\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Passoword'\r\n}"
+                },
+                {
+                    "name": "ReadOnly",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/input/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args,\r\n            type: 'text',\r\n            isReadOnly: true\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'ReadOnly'\r\n}"
+                },
+                {
+                    "name": "template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/input/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`\r\n    <ui-input\r\n        [type]=\"type\"\r\n        [value]=\"value\"\r\n        [isFocus]=\"isFocus\"\r\n        [isError]=\"isError\"\r\n        [isDisabled]=\"isDisabled\"\r\n        [isReadOnly]=\"isReadOnly\"\r\n        [isPassword]=\"isPassword\"\r\n        [minValue]=\"minValue\"\r\n        [maxValue]=\"maxValue\" />\r\n`"
                 }
             ],
             "src/app/utils/cookies.ts": [
@@ -2333,6 +2763,19 @@
                     "description": "",
                     "kind": 183
                 }
+            ],
+            "src/stories/forms/input/Input.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<InputComponent>",
+                    "file": "src/stories/forms/input/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
             ]
         }
     },
@@ -2489,6 +2932,15 @@
                 "name": "AlertComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/input/input.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/18",
                 "status": "low"
             },
             {
@@ -2745,6 +3197,96 @@
             },
             {
                 "filePath": "src/stories/Alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/input/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/input/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/input/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Error",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/input/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Focus",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/input/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/input/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Number",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/input/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Passoword",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/input/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ReadOnly",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/input/Input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

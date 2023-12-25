@@ -1,0 +1,86 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import * as InputStories from './Input.stories.ts';
+
+
+<Meta 
+    title="Components/Forms/Input" 
+    of={InputStories}
+/>
+
+<style>{`
+    @import url('https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    body{
+        font-family: 'Exo', sans-serif !important;
+    }
+    #input, #types, #states  {
+        font-family: 'Exo', sans-serif !important;
+        font-weight: bold;
+        font-size: 3em;
+    }
+    .text {
+        font-family: 'Exo', sans-serif !important;
+        font-weight: 500;
+        line-height: 18px;
+    }
+    .css-xzp052 {
+        padding: 30px 0px !important;
+    }
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .css-s230ta {
+        margin-top: 0px !important;
+    }
+`}</style>
+
+
+# Input
+
+
+<p className="text">An input component that provides a flexible interface for data entry. This entry is designed with a modern style and customization options to suit various design needs.</p>
+
+<Canvas of={InputStories.Default} />
+
+
+# Types
+
+<p className="text">The custom input component supports several types that determine the nature of the data input and its visual presentation. The types available are described here</p>
+
+<div className='wrapper'>
+    <div className='card'>
+        <h3>Number</h3>
+        <Canvas of={InputStories.Number} />
+    </div>
+    <div className='card'>
+        <h3>Password</h3>
+        <Canvas of={InputStories.Passoword} />
+    </div>
+</div>
+
+
+# States
+
+<p className="text">The custom input component can reflect various visual states to provide feedback to the user and adapt to different situations. The available statuses are detailed below.</p>
+
+<div className='wrapper'>
+    <div className='card'>
+        <h3>Focus</h3>
+        <Canvas of={InputStories.Focus} />
+    </div>
+    <div className='card'>
+        <h3>Error</h3>
+        <Canvas of={InputStories.Error} />
+    </div>
+    <div className='card'>
+        <h3>Read Only</h3>
+        <Canvas of={InputStories.ReadOnly} />
+    </div>
+    <div className='card'>
+        <h3>Disabled</h3>
+        <Canvas of={InputStories.Disabled} />
+    </div>
+</div>

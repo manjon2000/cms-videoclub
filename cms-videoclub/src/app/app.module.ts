@@ -28,6 +28,7 @@ import { FilmsDeleteComponent } from './pages/films/films.delete/films.delete.co
 import { DashboardPageComponent } from './pages/dashboard/dashboard.page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './components/alert/alert.component';
+import { InputComponent } from './components/input/input.component';
 
 
 
@@ -46,6 +47,7 @@ import { AlertComponent } from './components/alert/alert.component';
     FilmsDeleteComponent,
     DashboardPageComponent,
     AlertComponent,
+    InputComponent,
   ],
   imports: [
     BrowserModule,

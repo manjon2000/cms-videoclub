@@ -455,7 +455,7 @@
     "components": [
         {
             "name": "AccordionComponent",
-            "id": "component-AccordionComponent-a465d7957a813d17894dca375dd777070601dc806478b6700eccb2149582637492090b471c64da7b76e571b7f575b172b69c6786875fe80448f2a26d6f6a3f10",
+            "id": "component-AccordionComponent-540b4b64c014f5a57f37f6314d58cfbb0b779eb858386b7ad3a0a45f936f103ed419f4623fa33b651cbea6a63d0d742fed798da0a1c0e44ee367c1ae68c7e3eb",
             "file": "src/app/components/accordion/accordion.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -472,10 +472,47 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "icon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "isExpand",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "fnExpandPanel",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -485,17 +522,17 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'ui-accordion',\n  templateUrl: './accordion.component.html',\n  styleUrls: ['./accordion.component.scss']\n})\nexport class AccordionComponent {\n\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'ui-accordion',\r\n  templateUrl: './accordion.component.html',\r\n  styleUrls: ['./accordion.component.scss']\r\n})\r\nexport class AccordionComponent {\r\n\r\n  @Input() title!: string;\r\n  @Input() icon!: string;\r\n  @Input() isExpand: boolean = false;\r\n\r\n\r\n  fnExpandPanel() {\r\n    this.isExpand = !this.isExpand;\r\n    console.log('EXPAND')\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".ui-accordion {\r\n    --ui-accordion-border-width: 0;\r\n    \r\n    width: 100%;\r\n    height: max-content;\r\n    box-shadow: 0px 5px 14px 0px rgba(0, 0, 0, 0.05);\r\n\r\n    &__head {\r\n        min-height: 48px;\r\n        position: relative;\r\n        display: flex;\r\n        justify-content: space-between;\r\n        align-items: center;\r\n        background: #FFF;\r\n        border-radius: 8px;\r\n        cursor: pointer;\r\n        padding: 1rem .5rem;\r\n        transition: ease-in-out .1s;\r\n\r\n        @media (min-width: 768px) {\r\n            padding: 1rem 1.255rem;\r\n        }\r\n\r\n        &::before {\r\n            content: '';\r\n            width: var(--ui-accordion-border-width, 0);\r\n            height: 1px;\r\n            position: absolute;\r\n            bottom: 0;\r\n            left: 0;\r\n            right: 0;\r\n            margin: 0 auto;\r\n            border-radius: 50px;\r\n            background-color: #F3F4F7;\r\n            transition: ease-in-out .8s;\r\n        }\r\n\r\n        &--expand {\r\n            border-radius: 8px 8px 0px 0px;\r\n        }\r\n    }\r\n\r\n    &__title {\r\n        font-size: 1rem;\r\n        font-weight: 700;\r\n        line-height: 12px;\r\n        color: #52565E;\r\n    }\r\n\r\n    &__icon {\r\n        color: #52565E;\r\n    }\r\n\r\n    &__wrapper {\r\n        display: flex;\r\n        align-items: center;\r\n        gap: 8px;\r\n    }\r\n\r\n    &__chevron {\r\n        color: #52565E;\r\n        transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) .4s;\r\n\r\n        &--rotate {\r\n            transform: rotate(180deg);\r\n        }\r\n    }\r\n\r\n    &__body {\r\n        clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);\r\n        background: #FFF;\r\n        border-radius: 0px 0px 8px 8px;\r\n        height: 0;\r\n\r\n        &--expand {\r\n            height: auto;\r\n            padding: 1rem .5rem;\r\n            border-radius: 0px 0px 8px 8px;\r\n            animation: expand .4s ease-in-out .1s forwards;\r\n\r\n            @media (min-width: 768px) {\r\n                padding: 1rem 1.255rem;\r\n            }\r\n        }\r\n    }\r\n\r\n    &--expand {\r\n        --ui-accordion-border-width: 100%;\r\n    }\r\n}\r\n\r\n@keyframes expand {\r\n    from {\r\n       clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0); \r\n    }\r\n    to {\r\n        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);\r\n    }\r\n}",
                     "styleUrl": "./accordion.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<p>accordion works!</p>\n"
+            "templateData": "<div class=\"ui-accordion\" [class.ui-accordion--expand]=\"isExpand\">\r\n    <div class=\"ui-accordion__head\" (click)=\"fnExpandPanel()\" [class.ui-accordion__head--expand]=\"isExpand\">\r\n        <div class=\"ui-accordion__wrapper\">\r\n            <span class=\"ui-accordion__icon pi pi-{{icon}}\"></span>\r\n            <h3 class=\"ui-accordion__title\">{{title}}</h3>\r\n        </div>\r\n        <span class=\"ui-accordion__chevron pi pi-angle-down\" [class.ui-accordion__chevron--rotate]=\"isExpand\"></span>\r\n    </div>\r\n    <div class=\"ui-accordion__body\" [class.ui-accordion__body--expand]=\"isExpand\">\r\n        <ng-content></ng-content>\r\n    </div>\r\n</div>\r\n"
         },
         {
             "name": "AlertComponent",
@@ -670,6 +707,50 @@
                 "OnInit"
             ],
             "templateData": "<router-outlet></router-outlet>"
+        },
+        {
+            "name": "ChipsComponent",
+            "id": "component-ChipsComponent-938b5970f74844c4d0f18bd8f36f83862585d9ca5001e7ce9b92d4b6b7a71e7dc8e4f3a15c0796e0c18effbdcf8105a144d0a88d02ed0b9aeb4d6fe241ff8b82",
+            "file": "src/app/components/chips/chips.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ui-chips",
+            "styleUrls": [
+                "./chips.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./chips.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'ui-chips',\n  templateUrl: './chips.component.html',\n  styleUrls: ['./chips.component.scss']\n})\nexport class ChipsComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./chips.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>chips works!</p>\n"
         },
         {
             "name": "DashboardComponent",
@@ -1929,13 +2010,13 @@
         },
         {
             "name": "AppModule",
-            "id": "module-AppModule-c19b194292fffd27ed4fc887ff9a31133033f02a829c542589f87c336beea8f4fae3939ab4d0248cad5e1c79ad37c50b909e2f271e8ec9af338e4ac83a06b387",
+            "id": "module-AppModule-56a76818172d2faf85fc09b3df1f93ae4b1ec032ba84de8e7a120ef34f82f7d512cc4305ca0817fcb07728d3c13c85efff746ce5d5b9c7aaa45640c2596a61cd",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\n\r\n\r\n// ngrx\r\nimport { StoreModule } from '@ngrx/store';\r\nimport { StoreDevtoolsModule } from '@ngrx/store-devtools';\r\n\r\n// Reactive Forms\r\nimport { ReactiveFormsModule } from '@angular/forms';\r\n\r\n// Swal\r\n\r\nimport {  AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { LoginComponent } from './layouts/login/login.component';\r\nimport { RegisterComponent } from './layouts/register/register.component';\r\nimport { DashboardComponent } from './layouts/auth/dashboard/dashboard.component'; \r\nimport { appReducers } from './app.reducer';\r\nimport { ListDropdownComponent } from './components/list-dropdown/list-dropdown.component';\r\nimport { EmployeesIndexComponent } from './pages/employees/employees.index/employees.index.component';\r\nimport { EmployeesEditComponent } from './pages/employees/employees.edit/employees.edit.component';\r\nimport { EmployeesDeleteComponent } from './pages/employees/employees.delete/employees.delete.component';\r\nimport { FilmsIndexComponent } from './pages/films/films.index/films.index.component';\r\nimport { FilmsEditComponent } from './pages/films/films.edit/films.edit.component';\r\nimport { FilmsDeleteComponent } from './pages/films/films.delete/films.delete.component';\r\nimport { DashboardPageComponent } from './pages/dashboard/dashboard.page.component';\r\nimport { HttpClientModule } from '@angular/common/http';\r\nimport { AlertComponent } from './components/alert/alert.component';\r\nimport { InputComponent } from './components/input/input.component';\nimport { AccordionComponent } from './components/accordion/accordion.component';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent,\r\n    LoginComponent,\r\n    RegisterComponent,\r\n    DashboardComponent,\r\n    ListDropdownComponent,\r\n    EmployeesIndexComponent,\r\n    EmployeesEditComponent,\r\n    EmployeesDeleteComponent,\r\n    FilmsIndexComponent,\r\n    FilmsEditComponent,\r\n    FilmsDeleteComponent,\r\n    DashboardPageComponent,\r\n    AlertComponent,\r\n    InputComponent,\r\n    AccordionComponent,\r\n  ],\r\n  imports: [\r\n    BrowserModule,\r\n    AppRoutingModule,\r\n    ReactiveFormsModule,\r\n   \r\n    HttpClientModule,\r\n    StoreModule.forRoot(\r\n      appReducers\r\n    ),\r\n    StoreDevtoolsModule.instrument({\r\n      maxAge: 25,\r\n      logOnly: false\r\n    })\r\n  ],\r\n  providers: [\r\n  ],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\n\r\n\r\n// ngrx\r\nimport { StoreModule } from '@ngrx/store';\r\nimport { StoreDevtoolsModule } from '@ngrx/store-devtools';\r\n\r\n// Reactive Forms\r\nimport { ReactiveFormsModule } from '@angular/forms';\r\n\r\n// Swal\r\n\r\nimport {  AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { LoginComponent } from './layouts/login/login.component';\r\nimport { RegisterComponent } from './layouts/register/register.component';\r\nimport { DashboardComponent } from './layouts/auth/dashboard/dashboard.component'; \r\nimport { appReducers } from './app.reducer';\r\nimport { ListDropdownComponent } from './components/list-dropdown/list-dropdown.component';\r\nimport { EmployeesIndexComponent } from './pages/employees/employees.index/employees.index.component';\r\nimport { EmployeesEditComponent } from './pages/employees/employees.edit/employees.edit.component';\r\nimport { EmployeesDeleteComponent } from './pages/employees/employees.delete/employees.delete.component';\r\nimport { FilmsIndexComponent } from './pages/films/films.index/films.index.component';\r\nimport { FilmsEditComponent } from './pages/films/films.edit/films.edit.component';\r\nimport { FilmsDeleteComponent } from './pages/films/films.delete/films.delete.component';\r\nimport { DashboardPageComponent } from './pages/dashboard/dashboard.page.component';\r\nimport { HttpClientModule } from '@angular/common/http';\r\nimport { AlertComponent } from './components/alert/alert.component';\r\nimport { InputComponent } from './components/input/input.component';\r\nimport { AccordionComponent } from './components/accordion/accordion.component';\nimport { ChipsComponent } from './components/chips/chips.component';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent,\r\n    LoginComponent,\r\n    RegisterComponent,\r\n    DashboardComponent,\r\n    ListDropdownComponent,\r\n    EmployeesIndexComponent,\r\n    EmployeesEditComponent,\r\n    EmployeesDeleteComponent,\r\n    FilmsIndexComponent,\r\n    FilmsEditComponent,\r\n    FilmsDeleteComponent,\r\n    DashboardPageComponent,\r\n    AlertComponent,\r\n    InputComponent,\r\n    AccordionComponent,\r\n    ChipsComponent,\r\n  ],\r\n  imports: [\r\n    BrowserModule,\r\n    AppRoutingModule,\r\n    ReactiveFormsModule,\r\n   \r\n    HttpClientModule,\r\n    StoreModule.forRoot(\r\n      appReducers\r\n    ),\r\n    StoreDevtoolsModule.instrument({\r\n      maxAge: 25,\r\n      logOnly: false\r\n    })\r\n  ],\r\n  providers: [\r\n  ],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -1952,6 +2033,9 @@
                         },
                         {
                             "name": "AppComponent"
+                        },
+                        {
+                            "name": "ChipsComponent"
                         },
                         {
                             "name": "DashboardComponent"
@@ -2144,6 +2228,16 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
+                "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Default'\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/chips/Chips.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
                 "defaultValue": "{\r\n    render: (args) => ({\r\n        props: args,\r\n        template: template,\r\n    }),\r\n    name: 'Default'\r\n}"
             },
             {
@@ -2254,7 +2348,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<AccordionComponent>",
-                "defaultValue": "{\r\n    title: 'Components/Alert',\r\n    component: AccordionComponent,\r\n    tags: ['autodocs'],\r\n}"
+                "defaultValue": "{\r\n    title: 'Components/Accordion',\r\n    component: AccordionComponent,\r\n    tags: ['autodocs'],\r\n    args: {\r\n        title: 'Accordion',\r\n        icon: 'verified',\r\n        isExpand: false\r\n    },\r\n    argTypes: {\r\n        title: {\r\n            type: 'string',\r\n            description: 'Title accordion.',\r\n        },\r\n        icon: {\r\n            type: 'string',\r\n            description: 'Accordion icon.'\r\n        },\r\n        isExpand: {\r\n            type: 'boolean',\r\n            description: 'Define if this open.'\r\n        }\r\n    }\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/chips/Chips.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ChipsComponent>",
+                "defaultValue": "{\r\n    title: 'Components/Chips',\r\n    component: ChipsComponent,\r\n    tags: ['autodocs'],\r\n    args: {},\r\n    argTypes: {}\r\n}"
             },
             {
                 "name": "meta",
@@ -2294,7 +2398,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\r\n  parameters: {\r\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  parameters: {\r\n    viewport: {\r\n      viewports: {\r\n        xs: {\r\n          name: 'Mobile (375px)',\r\n          styles: {\r\n            width: '375px',\r\n            height: '100%',\r\n          },\r\n        },\r\n        sm: {\r\n          name: 'Tablet (768px)',\r\n          styles: {\r\n            width: '768px',\r\n            height: '100%',\r\n          },\r\n        },\r\n        md: {\r\n          name: 'Desktop Small (1024px)',\r\n          styles: {\r\n            width: '1024px',\r\n            height: '100%',\r\n          },\r\n        },\r\n        lg: {\r\n          name: 'Desktop Medium (1440px)',\r\n          styles: {\r\n            width: '1440px',\r\n            height: '100%',\r\n          },\r\n        },\r\n        xl: {\r\n          name: 'Desktop Large (1920px)',\r\n          styles: {\r\n            width: '1920px',\r\n            height: '100%',\r\n          },\r\n        },\r\n      }\r\n    },\r\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "ReadOnly",
@@ -2344,7 +2448,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "`\r\n    <ui-accordion />\r\n`"
+                "defaultValue": "`\r\n    <ui-accordion [title]=\"title\" [icon]=\"icon\" [isExpand]=\"isExpand\">\r\n        <h1 style=\"font-weight: bold; font-size: 1.25rem; line-height: 24px; margin-bottom: .5rem; color: #52565E;\">Custom Content</h1>\r\n        <p style=\"color: #CACCD1;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime laudantium, temporibus eum ducimus possimus ipsum, eveniet nihil dicta iusto error repellendus odio optio. Minus cum commodi dolorum nulla. Assumenda possimus eius neque voluptate fuga at mollitia, ducimus est iure ea.</p>\r\n    </ui-accordion>\r\n`"
+            },
+            {
+                "name": "template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/chips/Chips.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`\r\n    <ui-chips />\r\n`"
             },
             {
                 "name": "template",
@@ -2478,6 +2592,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<ChipsComponent>",
+                "file": "src/stories/chips/Chips.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<InputComponent>",
                 "file": "src/stories/forms/input/Input.stories.ts",
                 "deprecated": false,
@@ -2585,7 +2710,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n    render: (args) => ({\r\n        props: args,\r\n        template: template,\r\n    }),\r\n    name: 'Default'\r\n}"
+                    "defaultValue": "{\r\n    render: (args) => ({\r\n        props: {\r\n            ...args\r\n        },\r\n        template: template,\r\n    }),\r\n    name: 'Default'\r\n}"
                 },
                 {
                     "name": "meta",
@@ -2595,7 +2720,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<AccordionComponent>",
-                    "defaultValue": "{\r\n    title: 'Components/Alert',\r\n    component: AccordionComponent,\r\n    tags: ['autodocs'],\r\n}"
+                    "defaultValue": "{\r\n    title: 'Components/Accordion',\r\n    component: AccordionComponent,\r\n    tags: ['autodocs'],\r\n    args: {\r\n        title: 'Accordion',\r\n        icon: 'verified',\r\n        isExpand: false\r\n    },\r\n    argTypes: {\r\n        title: {\r\n            type: 'string',\r\n            description: 'Title accordion.',\r\n        },\r\n        icon: {\r\n            type: 'string',\r\n            description: 'Accordion icon.'\r\n        },\r\n        isExpand: {\r\n            type: 'boolean',\r\n            description: 'Define if this open.'\r\n        }\r\n    }\r\n}"
                 },
                 {
                     "name": "template",
@@ -2605,7 +2730,39 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "`\r\n    <ui-accordion />\r\n`"
+                    "defaultValue": "`\r\n    <ui-accordion [title]=\"title\" [icon]=\"icon\" [isExpand]=\"isExpand\">\r\n        <h1 style=\"font-weight: bold; font-size: 1.25rem; line-height: 24px; margin-bottom: .5rem; color: #52565E;\">Custom Content</h1>\r\n        <p style=\"color: #CACCD1;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime laudantium, temporibus eum ducimus possimus ipsum, eveniet nihil dicta iusto error repellendus odio optio. Minus cum commodi dolorum nulla. Assumenda possimus eius neque voluptate fuga at mollitia, ducimus est iure ea.</p>\r\n    </ui-accordion>\r\n`"
+                }
+            ],
+            "src/stories/chips/Chips.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/chips/Chips.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: (args) => ({\r\n        props: args,\r\n        template: template,\r\n    }),\r\n    name: 'Default'\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/chips/Chips.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ChipsComponent>",
+                    "defaultValue": "{\r\n    title: 'Components/Chips',\r\n    component: ChipsComponent,\r\n    tags: ['autodocs'],\r\n    args: {},\r\n    argTypes: {}\r\n}"
+                },
+                {
+                    "name": "template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/chips/Chips.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`\r\n    <ui-chips />\r\n`"
                 }
             ],
             "src/stories/forms/input/Input.stories.ts": [
@@ -2755,7 +2912,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\r\n  parameters: {\r\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  parameters: {\r\n    viewport: {\r\n      viewports: {\r\n        xs: {\r\n          name: 'Mobile (375px)',\r\n          styles: {\r\n            width: '375px',\r\n            height: '100%',\r\n          },\r\n        },\r\n        sm: {\r\n          name: 'Tablet (768px)',\r\n          styles: {\r\n            width: '768px',\r\n            height: '100%',\r\n          },\r\n        },\r\n        md: {\r\n          name: 'Desktop Small (1024px)',\r\n          styles: {\r\n            width: '1024px',\r\n            height: '100%',\r\n          },\r\n        },\r\n        lg: {\r\n          name: 'Desktop Medium (1440px)',\r\n          styles: {\r\n            width: '1440px',\r\n            height: '100%',\r\n          },\r\n        },\r\n        xl: {\r\n          name: 'Desktop Large (1920px)',\r\n          styles: {\r\n            width: '1920px',\r\n            height: '100%',\r\n          },\r\n        },\r\n      }\r\n    },\r\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n}"
                 }
             ],
             "src/app/auth/auth.actions.ts": [
@@ -2891,6 +3048,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<AccordionComponent>",
                     "file": "src/stories/accordion/accordion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "src/stories/chips/Chips.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ChipsComponent>",
+                    "file": "src/stories/chips/Chips.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3064,7 +3234,7 @@
                 "linktype": "component",
                 "name": "AccordionComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -3074,6 +3244,15 @@
                 "name": "AlertComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/chips/chips.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ChipsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3369,6 +3548,36 @@
             },
             {
                 "filePath": "src/stories/accordion/accordion.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/chips/Chips.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/chips/Chips.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/chips/Chips.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

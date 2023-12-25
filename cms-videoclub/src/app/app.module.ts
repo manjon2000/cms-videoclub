@@ -30,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './components/alert/alert.component';
 import { InputComponent } from './components/input/input.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
+import { ChipsComponent } from './components/chips/chips.component';
 
 
 
@@ -50,6 +51,7 @@ import { AccordionComponent } from './components/accordion/accordion.component';
     AlertComponent,
     InputComponent,
     AccordionComponent,
+    ChipsComponent,
   ],
   imports: [
     BrowserModule,

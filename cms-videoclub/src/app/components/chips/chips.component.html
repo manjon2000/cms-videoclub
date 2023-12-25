@@ -1,0 +1,16 @@
+<ng-container *ngIf="!isCustom; else chipCustom">
+    <div class="ui-chips"
+     [class.ui-chips--success]="type === 'success'"
+     [class.ui-chips--danger]="type === 'danger'"
+     [class.ui-chips--warning]="type === 'warning'"
+     [class.ui-chips--neutral]="type === 'neutral'">
+    <span class="ui-chips__title">{{title}}</span>
+</div>
+</ng-container>
+
+
+<ng-template #chipCustom>
+    <div class="ui-chips" [ngStyle]="{'background-color': background}" >
+    <span class="ui-chips__title" [ngStyle]="{'color': textColor}">{{title}}</span>
+</div>
+</ng-template>

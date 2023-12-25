@@ -29,6 +29,7 @@ import { DashboardPageComponent } from './pages/dashboard/dashboard.page.compone
 import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './components/alert/alert.component';
 import { InputComponent } from './components/input/input.component';
+import { AccordionComponent } from './components/accordion/accordion.component';
 
 
 
@@ -48,6 +49,7 @@ import { InputComponent } from './components/input/input.component';
     DashboardPageComponent,
     AlertComponent,
     InputComponent,
+    AccordionComponent,
   ],
   imports: [
     BrowserModule,

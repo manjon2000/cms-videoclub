@@ -454,6 +454,50 @@
     "directives": [],
     "components": [
         {
+            "name": "AccordionComponent",
+            "id": "component-AccordionComponent-a465d7957a813d17894dca375dd777070601dc806478b6700eccb2149582637492090b471c64da7b76e571b7f575b172b69c6786875fe80448f2a26d6f6a3f10",
+            "file": "src/app/components/accordion/accordion.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ui-accordion",
+            "styleUrls": [
+                "./accordion.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./accordion.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'ui-accordion',\n  templateUrl: './accordion.component.html',\n  styleUrls: ['./accordion.component.scss']\n})\nexport class AccordionComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./accordion.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>accordion works!</p>\n"
+        },
+        {
             "name": "AlertComponent",
             "id": "component-AlertComponent-c708382db4fe742ae8941c9720f89f65a3484b0598fc7898b5dea9123a22b2d3dee612ecc736ee49535eee699b45f0c07f5d9793dbaabf0870a5ee02a72ce927",
             "file": "src/app/components/alert/alert.component.ts",
@@ -1115,7 +1159,7 @@
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-c0b2a9c91b0c0f00f37f584fee5af784ac021a219b21c4d33d139f6e501a956d82fdc95e0af96f3957b4301898ab7ec67eefcce072ac5ebbd34cb95298da0540",
+            "id": "component-InputComponent-815b8d60d23ad3def8e19d3af433faed0b397e31508c6402d94785aaae8a19e9c5d60e5442603fded4728a415e84c41829741522bd076dbf458d7c50b61ee05f",
             "file": "src/app/components/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1332,7 +1376,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, ElementRef, ViewChild, OnChanges, SimpleChanges, AfterViewInit} from '@angular/core';\n\n\n\n@Component({\n  selector: 'ui-input',\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss']\n})\nexport class InputComponent implements AfterViewInit, OnChanges {\n\n\n  @ViewChild('input') input!: ElementRef; \n\n  @Input() type:      'text' | 'password' | 'email' | 'number' = 'text';\n  @Input() value?:      string | number;\n  @Input() isFocus?:    boolean = false;\n  @Input() isError?:    boolean = false;\n  @Input() isDisabled?: boolean = false;\n  @Input() isReadOnly?: boolean = false;\n  @Input() isPassword?: boolean = false;\n  @Input() minValue!: number;\n  @Input() maxValue!: number;\n\n  ngAfterViewInit(): void {}\n\n  ngOnChanges(changes: SimpleChanges): void {}\n\n  fnFocus(): void {\n    if(!this.isReadOnly || !this.isDisabled) {\n      this.isFocus = !this.isFocus;\n    }\n  }\n\n  fnBlur(): void {\n    this.isFocus = false;\n  }\n  toggleType() {\n    if(this.type === 'password') {\n      this.type = 'text';\n    }else {\n      this.type = 'password';\n    }\n  }\n\n  fnIncrement() {\n    if(this.value && Number(this.value) <= this.maxValue) {\n      this.value = Number(this.value) + 1;\n    }\n  }\n\n  fnDecrement() {\n    if(this.value) {\n      this.value = Number(this.value) - 1;\n    }\n  }\n}\n",
+            "sourceCode": "import { Component, Input, ElementRef, ViewChild, OnChanges, SimpleChanges, AfterViewInit} from '@angular/core';\r\n\r\n\r\n\r\n@Component({\r\n  selector: 'ui-input',\r\n  templateUrl: './input.component.html',\r\n  styleUrls: ['./input.component.scss']\r\n})\r\nexport class InputComponent implements AfterViewInit, OnChanges {\r\n\r\n\r\n  @ViewChild('input') input!: ElementRef; \r\n\r\n  @Input() type:      'text' | 'password' | 'email' | 'number' = 'text';\r\n  @Input() value?:      string | number;\r\n  @Input() isFocus?:    boolean = false;\r\n  @Input() isError?:    boolean = false;\r\n  @Input() isDisabled?: boolean = false;\r\n  @Input() isReadOnly?: boolean = false;\r\n  @Input() isPassword?: boolean = false;\r\n  @Input() minValue!: number;\r\n  @Input() maxValue!: number;\r\n\r\n  ngAfterViewInit(): void {}\r\n\r\n  ngOnChanges(changes: SimpleChanges): void {}\r\n\r\n  fnFocus(): void {\r\n    if(!this.isReadOnly || !this.isDisabled) {\r\n      this.isFocus = !this.isFocus;\r\n    }\r\n  }\r\n\r\n  fnBlur(): void {\r\n    this.isFocus = false;\r\n  }\r\n  toggleType() {\r\n    if(this.type === 'password') {\r\n      this.type = 'text';\r\n    }else {\r\n      this.type = 'password';\r\n    }\r\n  }\r\n\r\n  fnIncrement() {\r\n    if(this.value && Number(this.value) <= this.maxValue) {\r\n      this.value = Number(this.value) + 1;\r\n    }\r\n  }\r\n\r\n  fnDecrement() {\r\n    if(this.value) {\r\n      this.value = Number(this.value) - 1;\r\n    }\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1346,7 +1390,7 @@
                 "AfterViewInit",
                 "OnChanges"
             ],
-            "templateData": "<div class=\"ui-input\" [class.ui-input--number]=\"type === 'number'\" [class.ui-input--focus]=\"isFocus\"\n    [class.ui-input--error]=\"isError\" [class.ui-input--disabled]=\"isDisabled\" [class.ui-input--readonly]=\"isReadOnly\">\n    <div class=\"ui-input__icon ui-input__icon--primary\">\n        <svg width=\"16\" height=\"16\" viewBox=\"0 0 6 8\">\n            <path\n                d=\"M4.875 3.75C5.49632 3.75 6 4.25368 6 4.875C6 5.71206 5.65577 6.3827 5.09089 6.8361C4.53494 7.28235 3.78981 7.5 3 7.5C2.21019 7.5 1.46507 7.28235 0.909113 6.8361C0.344228 6.3827 0 5.71206 0 4.875C0 4.29025 0.446157 3.80967 1.01664 3.75515L1.12498 3.75H4.875ZM3 0C3.82843 0 4.5 0.671572 4.5 1.5C4.5 2.32843 3.82843 3 3 3C2.17157 3 1.5 2.32843 1.5 1.5C1.5 0.671572 2.17157 0 3 0Z\" />\n        </svg>\n    </div>\n    <input #input class=\"ui-input__input\" [type]=\"type\" [value]=\"value !== undefined ? value : ''\" placeholder=\"Placeholder\" name=\"demo\" id=\"demo\" [min]=\"minValue\" [max]=\"maxValue\"\n        (focus)=\"fnFocus()\" (blur)=\"fnBlur()\" [disabled]=\"isDisabled\" [readOnly]=\"isReadOnly\" />\n\n    <ng-container *ngIf=\"isPassword\">\n        <svg class=\"ui-input__icon ui-input__icon--password\" (click)=\"toggleType()\" width=\"16\" height=\"16\"\n            viewBox=\"0 0 6 7\">\n            <path d=\"M3.04631 3.00079L4.31171 4.26618C4.28782 3.57812 3.73436 3.02465 3.04631 3.00079Z\" />\n            <path\n                d=\"M0.320082 0.80492C0.24686 0.731693 0.128142 0.731693 0.0549197 0.80492C-0.0183066 0.878142 -0.0183066 0.99686 0.0549197 1.07008L1.36699 2.38215C0.738916 2.80942 0.271276 3.47769 0.105065 4.27421C0.0839146 4.37558 0.148943 4.47491 0.250313 4.49606C0.351683 4.51721 0.451006 4.45219 0.47216 4.35079C0.623588 3.62512 1.05888 3.02359 1.63768 2.65283L2.23251 3.24767C1.90236 3.48604 1.6875 3.87416 1.6875 4.3125C1.6875 5.03738 2.27513 5.625 3 5.625C3.43834 5.625 3.82646 5.41013 4.06485 5.07998L5.6799 6.6951C5.75314 6.7683 5.87186 6.7683 5.9451 6.6951C6.0183 6.62186 6.0183 6.50314 5.9451 6.4299L0.320082 0.80492ZM3.79478 4.80994C3.62899 5.07428 3.33503 5.25 3 5.25C2.48223 5.25 2.0625 4.83026 2.0625 4.3125C2.0625 3.97748 2.23824 3.68349 2.50256 3.51771L3.79478 4.80994Z\" />\n            <path\n                d=\"M3 2.25C2.78631 2.25 2.57681 2.27757 2.37532 2.32982L2.07417 2.02867C2.36756 1.92874 2.67932 1.875 3 1.875C4.38502 1.875 5.60344 2.87742 5.89496 4.27421C5.91611 4.37557 5.85109 4.47487 5.74969 4.49606C5.64832 4.51721 5.54902 4.45219 5.52784 4.35079C5.27152 3.12258 4.20214 2.25 3 2.25Z\" />\n        </svg>\n    </ng-container>\n\n    <ng-container *ngIf=\"type === 'number'\">\n        <div class=\"ui-input__numeric\">\n            <svg class=\"ui-input__numeric-minus ui-input__icon\"  width=\"86\" height=\"6\" viewBox=\"0 0 86 6\" (click)=\"fnDecrement()\">\n                <path d=\"M0 2.6721C0 1.19635 1.19635 0 2.6721 0H82.8352C84.3108 0 85.5073 1.19635 85.5073 2.6721C85.5073 4.14785 84.3108 5.34421 82.8352 5.34421H2.6721C1.19635 5.34421 0 4.14785 0 2.6721Z\" />\n              </svg>\n            <svg class=\"ui-input__numeric-plus ui-input__icon\" width=\"16\" height=\"16\" viewBox=\"0 0 86 86\" (click)=\"fnIncrement()\">\n                <path\n                    d=\"M42.2244 0.150449L43.185 0.0643463C45.8086 0.0643463 47.9906 1.95486 48.4431 4.44793L48.5292 5.40855V37.4738H80.5945C83.218 37.4738 85.4001 39.3643 85.8526 41.8574L85.9387 42.818C85.9387 45.4416 84.0481 47.6236 81.5551 48.0761L80.5945 48.1622H48.5292V80.2275C48.5292 82.851 46.6387 85.0331 44.1456 85.4856L43.185 85.5717C40.5614 85.5717 38.3794 83.6812 37.9269 81.1881L37.8408 80.2275V48.1622H5.77554C3.15197 48.1622 0.969942 46.2717 0.517438 43.7786L0.431335 42.818C0.431335 40.1944 2.32185 38.0124 4.81491 37.5599L5.77554 37.4738H37.8408V5.40855C37.8408 2.78498 39.7313 0.602953 42.2244 0.150449Z\" />\n            </svg>\n        </div>\n    </ng-container>\n</div>"
+            "templateData": "<div class=\"ui-input\" [class.ui-input--number]=\"type === 'number'\" [class.ui-input--focus]=\"isFocus\"\r\n    [class.ui-input--error]=\"isError\" [class.ui-input--disabled]=\"isDisabled\" [class.ui-input--readonly]=\"isReadOnly\">\r\n    <div class=\"ui-input__icon ui-input__icon--primary\">\r\n        <svg width=\"16\" height=\"16\" viewBox=\"0 0 6 8\">\r\n            <path\r\n                d=\"M4.875 3.75C5.49632 3.75 6 4.25368 6 4.875C6 5.71206 5.65577 6.3827 5.09089 6.8361C4.53494 7.28235 3.78981 7.5 3 7.5C2.21019 7.5 1.46507 7.28235 0.909113 6.8361C0.344228 6.3827 0 5.71206 0 4.875C0 4.29025 0.446157 3.80967 1.01664 3.75515L1.12498 3.75H4.875ZM3 0C3.82843 0 4.5 0.671572 4.5 1.5C4.5 2.32843 3.82843 3 3 3C2.17157 3 1.5 2.32843 1.5 1.5C1.5 0.671572 2.17157 0 3 0Z\" />\r\n        </svg>\r\n    </div>\r\n    <input #input class=\"ui-input__input\" [type]=\"type\" [value]=\"value !== undefined ? value : ''\" placeholder=\"Placeholder\" name=\"demo\" id=\"demo\" [min]=\"minValue\" [max]=\"maxValue\"\r\n        (focus)=\"fnFocus()\" (blur)=\"fnBlur()\" [disabled]=\"isDisabled\" [readOnly]=\"isReadOnly\" />\r\n\r\n    <ng-container *ngIf=\"isPassword\">\r\n        <svg class=\"ui-input__icon ui-input__icon--password\" (click)=\"toggleType()\" width=\"16\" height=\"16\"\r\n            viewBox=\"0 0 6 7\">\r\n            <path d=\"M3.04631 3.00079L4.31171 4.26618C4.28782 3.57812 3.73436 3.02465 3.04631 3.00079Z\" />\r\n            <path\r\n                d=\"M0.320082 0.80492C0.24686 0.731693 0.128142 0.731693 0.0549197 0.80492C-0.0183066 0.878142 -0.0183066 0.99686 0.0549197 1.07008L1.36699 2.38215C0.738916 2.80942 0.271276 3.47769 0.105065 4.27421C0.0839146 4.37558 0.148943 4.47491 0.250313 4.49606C0.351683 4.51721 0.451006 4.45219 0.47216 4.35079C0.623588 3.62512 1.05888 3.02359 1.63768 2.65283L2.23251 3.24767C1.90236 3.48604 1.6875 3.87416 1.6875 4.3125C1.6875 5.03738 2.27513 5.625 3 5.625C3.43834 5.625 3.82646 5.41013 4.06485 5.07998L5.6799 6.6951C5.75314 6.7683 5.87186 6.7683 5.9451 6.6951C6.0183 6.62186 6.0183 6.50314 5.9451 6.4299L0.320082 0.80492ZM3.79478 4.80994C3.62899 5.07428 3.33503 5.25 3 5.25C2.48223 5.25 2.0625 4.83026 2.0625 4.3125C2.0625 3.97748 2.23824 3.68349 2.50256 3.51771L3.79478 4.80994Z\" />\r\n            <path\r\n                d=\"M3 2.25C2.78631 2.25 2.57681 2.27757 2.37532 2.32982L2.07417 2.02867C2.36756 1.92874 2.67932 1.875 3 1.875C4.38502 1.875 5.60344 2.87742 5.89496 4.27421C5.91611 4.37557 5.85109 4.47487 5.74969 4.49606C5.64832 4.51721 5.54902 4.45219 5.52784 4.35079C5.27152 3.12258 4.20214 2.25 3 2.25Z\" />\r\n        </svg>\r\n    </ng-container>\r\n\r\n    <ng-container *ngIf=\"type === 'number'\">\r\n        <div class=\"ui-input__numeric\">\r\n            <svg class=\"ui-input__numeric-minus ui-input__icon\"  width=\"86\" height=\"6\" viewBox=\"0 0 86 6\" (click)=\"fnDecrement()\">\r\n                <path d=\"M0 2.6721C0 1.19635 1.19635 0 2.6721 0H82.8352C84.3108 0 85.5073 1.19635 85.5073 2.6721C85.5073 4.14785 84.3108 5.34421 82.8352 5.34421H2.6721C1.19635 5.34421 0 4.14785 0 2.6721Z\" />\r\n              </svg>\r\n            <svg class=\"ui-input__numeric-plus ui-input__icon\" width=\"16\" height=\"16\" viewBox=\"0 0 86 86\" (click)=\"fnIncrement()\">\r\n                <path\r\n                    d=\"M42.2244 0.150449L43.185 0.0643463C45.8086 0.0643463 47.9906 1.95486 48.4431 4.44793L48.5292 5.40855V37.4738H80.5945C83.218 37.4738 85.4001 39.3643 85.8526 41.8574L85.9387 42.818C85.9387 45.4416 84.0481 47.6236 81.5551 48.0761L80.5945 48.1622H48.5292V80.2275C48.5292 82.851 46.6387 85.0331 44.1456 85.4856L43.185 85.5717C40.5614 85.5717 38.3794 83.6812 37.9269 81.1881L37.8408 80.2275V48.1622H5.77554C3.15197 48.1622 0.969942 46.2717 0.517438 43.7786L0.431335 42.818C0.431335 40.1944 2.32185 38.0124 4.81491 37.5599L5.77554 37.4738H37.8408V5.40855C37.8408 2.78498 39.7313 0.602953 42.2244 0.150449Z\" />\r\n            </svg>\r\n        </div>\r\n    </ng-container>\r\n</div>"
         },
         {
             "name": "ListDropdownComponent",
@@ -1885,13 +1929,13 @@
         },
         {
             "name": "AppModule",
-            "id": "module-AppModule-29ae05d3c3c9758c9322e7ac28074474faa7dfae1e5eeb9e7acfde8627f78fa9452db2ee3ebd63de439ccb927234756f3172ca3e4085ed4d38256dd28a645ebe",
+            "id": "module-AppModule-c19b194292fffd27ed4fc887ff9a31133033f02a829c542589f87c336beea8f4fae3939ab4d0248cad5e1c79ad37c50b909e2f271e8ec9af338e4ac83a06b387",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\n\r\n\r\n// ngrx\r\nimport { StoreModule } from '@ngrx/store';\r\nimport { StoreDevtoolsModule } from '@ngrx/store-devtools';\r\n\r\n// Reactive Forms\r\nimport { ReactiveFormsModule } from '@angular/forms';\r\n\r\n// Swal\r\n\r\nimport {  AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { LoginComponent } from './layouts/login/login.component';\r\nimport { RegisterComponent } from './layouts/register/register.component';\r\nimport { DashboardComponent } from './layouts/auth/dashboard/dashboard.component'; \r\nimport { appReducers } from './app.reducer';\r\nimport { ListDropdownComponent } from './components/list-dropdown/list-dropdown.component';\r\nimport { EmployeesIndexComponent } from './pages/employees/employees.index/employees.index.component';\r\nimport { EmployeesEditComponent } from './pages/employees/employees.edit/employees.edit.component';\r\nimport { EmployeesDeleteComponent } from './pages/employees/employees.delete/employees.delete.component';\r\nimport { FilmsIndexComponent } from './pages/films/films.index/films.index.component';\r\nimport { FilmsEditComponent } from './pages/films/films.edit/films.edit.component';\r\nimport { FilmsDeleteComponent } from './pages/films/films.delete/films.delete.component';\r\nimport { DashboardPageComponent } from './pages/dashboard/dashboard.page.component';\r\nimport { HttpClientModule } from '@angular/common/http';\r\nimport { AlertComponent } from './components/alert/alert.component';\nimport { InputComponent } from './components/input/input.component';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent,\r\n    LoginComponent,\r\n    RegisterComponent,\r\n    DashboardComponent,\r\n    ListDropdownComponent,\r\n    EmployeesIndexComponent,\r\n    EmployeesEditComponent,\r\n    EmployeesDeleteComponent,\r\n    FilmsIndexComponent,\r\n    FilmsEditComponent,\r\n    FilmsDeleteComponent,\r\n    DashboardPageComponent,\r\n    AlertComponent,\r\n    InputComponent,\r\n  ],\r\n  imports: [\r\n    BrowserModule,\r\n    AppRoutingModule,\r\n    ReactiveFormsModule,\r\n   \r\n    HttpClientModule,\r\n    StoreModule.forRoot(\r\n      appReducers\r\n    ),\r\n    StoreDevtoolsModule.instrument({\r\n      maxAge: 25,\r\n      logOnly: false\r\n    })\r\n  ],\r\n  providers: [\r\n  ],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\n\r\n\r\n// ngrx\r\nimport { StoreModule } from '@ngrx/store';\r\nimport { StoreDevtoolsModule } from '@ngrx/store-devtools';\r\n\r\n// Reactive Forms\r\nimport { ReactiveFormsModule } from '@angular/forms';\r\n\r\n// Swal\r\n\r\nimport {  AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { LoginComponent } from './layouts/login/login.component';\r\nimport { RegisterComponent } from './layouts/register/register.component';\r\nimport { DashboardComponent } from './layouts/auth/dashboard/dashboard.component'; \r\nimport { appReducers } from './app.reducer';\r\nimport { ListDropdownComponent } from './components/list-dropdown/list-dropdown.component';\r\nimport { EmployeesIndexComponent } from './pages/employees/employees.index/employees.index.component';\r\nimport { EmployeesEditComponent } from './pages/employees/employees.edit/employees.edit.component';\r\nimport { EmployeesDeleteComponent } from './pages/employees/employees.delete/employees.delete.component';\r\nimport { FilmsIndexComponent } from './pages/films/films.index/films.index.component';\r\nimport { FilmsEditComponent } from './pages/films/films.edit/films.edit.component';\r\nimport { FilmsDeleteComponent } from './pages/films/films.delete/films.delete.component';\r\nimport { DashboardPageComponent } from './pages/dashboard/dashboard.page.component';\r\nimport { HttpClientModule } from '@angular/common/http';\r\nimport { AlertComponent } from './components/alert/alert.component';\r\nimport { InputComponent } from './components/input/input.component';\nimport { AccordionComponent } from './components/accordion/accordion.component';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent,\r\n    LoginComponent,\r\n    RegisterComponent,\r\n    DashboardComponent,\r\n    ListDropdownComponent,\r\n    EmployeesIndexComponent,\r\n    EmployeesEditComponent,\r\n    EmployeesDeleteComponent,\r\n    FilmsIndexComponent,\r\n    FilmsEditComponent,\r\n    FilmsDeleteComponent,\r\n    DashboardPageComponent,\r\n    AlertComponent,\r\n    InputComponent,\r\n    AccordionComponent,\r\n  ],\r\n  imports: [\r\n    BrowserModule,\r\n    AppRoutingModule,\r\n    ReactiveFormsModule,\r\n   \r\n    HttpClientModule,\r\n    StoreModule.forRoot(\r\n      appReducers\r\n    ),\r\n    StoreDevtoolsModule.instrument({\r\n      maxAge: 25,\r\n      logOnly: false\r\n    })\r\n  ],\r\n  providers: [\r\n  ],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -1900,6 +1944,9 @@
                 {
                     "type": "declarations",
                     "elements": [
+                        {
+                            "name": "AccordionComponent"
+                        },
                         {
                             "name": "AlertComponent"
                         },
@@ -2093,6 +2140,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/accordion/accordion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    render: (args) => ({\r\n        props: args,\r\n        template: template,\r\n    }),\r\n    name: 'Default'\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/forms/input/Input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2193,6 +2250,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/accordion/accordion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AccordionComponent>",
+                "defaultValue": "{\r\n    title: 'Components/Alert',\r\n    component: AccordionComponent,\r\n    tags: ['autodocs'],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/forms/input/Input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2268,6 +2335,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "`\r\n    <ui-alert [label]=\"label\" [state]=\"state\" [icon]=\"icon\" />\r\n`"
+            },
+            {
+                "name": "template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/accordion/accordion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`\r\n    <ui-accordion />\r\n`"
             },
             {
                 "name": "template",
@@ -2390,6 +2467,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<AccordionComponent>",
+                "file": "src/stories/accordion/accordion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<InputComponent>",
                 "file": "src/stories/forms/input/Input.stories.ts",
                 "deprecated": false,
@@ -2486,6 +2574,38 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "`\r\n    <ui-alert [label]=\"label\" [state]=\"state\" [icon]=\"icon\" />\r\n`"
+                }
+            ],
+            "src/stories/accordion/accordion.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/accordion/accordion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: (args) => ({\r\n        props: args,\r\n        template: template,\r\n    }),\r\n    name: 'Default'\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/accordion/accordion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AccordionComponent>",
+                    "defaultValue": "{\r\n    title: 'Components/Alert',\r\n    component: AccordionComponent,\r\n    tags: ['autodocs'],\r\n}"
+                },
+                {
+                    "name": "template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/accordion/accordion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`\r\n    <ui-accordion />\r\n`"
                 }
             ],
             "src/stories/forms/input/Input.stories.ts": [
@@ -2764,6 +2884,19 @@
                     "kind": 183
                 }
             ],
+            "src/stories/accordion/accordion.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AccordionComponent>",
+                    "file": "src/stories/accordion/accordion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "src/stories/forms/input/Input.stories.ts": [
                 {
                     "name": "Story",
@@ -2921,6 +3054,15 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "initializeState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/accordion/accordion.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AccordionComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3197,6 +3339,36 @@
             },
             {
                 "filePath": "src/stories/Alert.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/accordion/accordion.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/accordion/accordion.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/accordion/accordion.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

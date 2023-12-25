@@ -1,12 +1,17 @@
 import type { StorybookConfig } from "@storybook/angular";
 
+
 const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: [
+    "../src/**/*.mdx", 
+    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/addon-styling-webpack",
+    "@storybook/manager-api",
+    "@storybook/theming"
     // ({
     //   name: '@storybook/addon-styling-webpack',
     //   options: {
@@ -33,5 +38,6 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  staticDirs: ['../src/assets']
 };
 export default config;

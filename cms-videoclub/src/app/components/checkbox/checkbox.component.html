@@ -1,0 +1,5 @@
+<label [htmlFor]="identify" class="ui-checkbox">
+    <input type="checkbox" [name]="nameInput" [id]="identify" (change)="onChange($event)" />
+    <div class="ui-checkbox__checkmark" [class.ui-checkbox__checkmark--active]="isActived"></div>
+    <span class="ui-checkbox__label">Label</span>
+</label>

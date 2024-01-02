@@ -31,6 +31,7 @@ import { AlertComponent } from './components/alert/alert.component';
 import { InputComponent } from './components/input/input.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { ChipsComponent } from './components/chips/chips.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
 
 
 
@@ -52,6 +53,7 @@ import { ChipsComponent } from './components/chips/chips.component';
     InputComponent,
     AccordionComponent,
     ChipsComponent,
+    CheckboxComponent,
   ],
   imports: [
     BrowserModule,

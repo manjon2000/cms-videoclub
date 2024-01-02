@@ -1,0 +1,48 @@
+.ui-checkbox {
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-template-columns: 16px auto;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+    &__checkmark {
+        width: 16px;
+        height: 16px;
+        position: relative;
+        border-radius: 4px;
+        border: 1px solid #414C92;
+        align-self: center;
+        transition: ease-in-out 1s;
+        
+       &--active {
+        transition: ease-in-out 1s;
+
+        &::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            background-color: #414C92;
+            border-radius: 1px;
+            transition: ease-in-out 1s;
+        }
+       }
+    }
+
+    &__label {
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+    }
+
+    & input[type="checkbox"] {
+        display: none;
+    }
+}
